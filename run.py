@@ -14,6 +14,10 @@ SHEET = GSPREAD_CLIENT.open('retro-bank')
 
 
 def register():
+    """
+    Registation function - 
+    allows the user to sign up for bank account
+    """
     print("Please register your details")
     name = input("Please enter your name")
     email = input("Please enter your email address")
@@ -21,12 +25,20 @@ def register():
     
 
 def login():
+    """
+    This fucntion will allow the exisiting user 
+    log into their bank account
+    """
     print("This is to login - Exisiting User")
     ename = input("Please enter your email")
     epass = input("Please enter your password")
 
 
 def welcome():
+    """
+    This function is the first option the user is given 
+    to select if they are a new user or existing user
+    """
    while True:
         try:
             choice = input("If you are a new customer please enter 1:\n" +
@@ -43,6 +55,11 @@ def welcome():
 
 
 def chosen(choice):
+    """
+    Once a valid user selection has been made in the
+    welcome function. This will then direct the user to
+    the appropriate new or existing user function
+    """
     if choice == "1":
         register()
     elif choice == "2":
@@ -50,6 +67,9 @@ def chosen(choice):
 
 
 def main():
+    """
+    Temp function to check all other functions work
+    """
     choice = welcome()
     chosen(choice)
     
