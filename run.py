@@ -82,9 +82,17 @@ def login():
     This fucntion will allow the exisiting user 
     log into their bank account
     """
-    print("Please log in now using your email & password")
-    ename = input("Please enter your email: ")
-    epass = input("Please enter your password: ")
+    email_ver = SHEET.worksheet("customer-data")
+    details = email_ver.col_values(1)
+    print(details)
+
+
+
+    # print("Please log in now using your email & password")
+    # ename = input("Please enter your email: ")
+    # epass = input("Please enter your password: ")
+
+
 
 
 def welcome():
