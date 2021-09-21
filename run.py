@@ -19,10 +19,8 @@ def emailcheck(emailinput):
         emailinput = valid.email
         return emailinput
     except EmailNotValidError as e:
-  # email is not valid, exception message is human-readable
         print("The email you provided is not valid please try again\n")
 
-    
 
 def register():
     """
@@ -30,9 +28,19 @@ def register():
     allows the user to sign up for bank account
     """
 
-    email = input("Please enter email")
-    check = emailcheck(email)
+    print("Welcome to retro bank As a new customer\n" +
+        "Please complete the following fileds to sign up for an account\n")
 
+    while True:
+        try:
+            email = input("Please enter your email address")
+            einput = emailcheck(email)
+            if einput == email:
+                break
+            return email
+        except Exception:
+            print(f"You have entered: '{email}'. This is not a" +
+                  "valid email, please try again...")
 
 def login():
     """
