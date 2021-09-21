@@ -37,7 +37,7 @@ def registerEmail():
     while True:
         try:
             global email
-            email = input("Please enter your email address")
+            email = input("Please enter your email address: ")
             einput = emailcheck(email)
             if einput != email:
                 raise ValueError(
@@ -56,23 +56,24 @@ def regDetails():
     new_cust = []
     bonus = 500
 
-    name = input("Please enter your full name: ")
     
     while True:
-        n_password = input("Please enter your password: ")
-        v_password = input("Re enter your password for validation: ")
-        print("Hello we are now processing your data.")
-        if n_password != v_password:
-            print(f"Unfortunatelly {f_name} the password you" +
-                    " provided do not match the original, please" +
-                    " try again...")
+        name = input("Please enter your full name: ")
+        password = input("Please enter your password: ")
+        if name == "":
+            print("Name is required")
+        elif password == "":
+            print("Password Required")
         else:
             new_cust.append(email)
             new_cust.append(name)
-            new_cust.append(v_password)
+            new_cust.append(password)
             new_cust.append(bonus)
             sheet.append_row(new_cust)
+            print("WELCOME TO RETRO BANK ! " +
+            " As a new customer you will receive £500 joining bonus")
             break
+
 
 
 def login():
