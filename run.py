@@ -14,6 +14,9 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('retro-bank')
 
 def emailcheck(emailinput):
+    """
+    Email validator function
+    """
     try:
         valid = validate_email(emailinput)
         emailinput = valid.email
@@ -22,10 +25,10 @@ def emailcheck(emailinput):
         print("The email you provided is not valid please try again\n")
 
 
-def register():
+def registerEmail():
     """
-    Registation function - 
-    allows the user to sign up for bank account
+    This fucntion checks the email address is correct 
+    while loop will continue until a valid emai is input
     """
 
     print("Welcome to retro bank As a new customer\n" +
@@ -33,6 +36,7 @@ def register():
 
     while True:
         try:
+            global email
             email = input("Please enter your email address")
             einput = emailcheck(email)
             if einput != email:
@@ -41,12 +45,35 @@ def register():
                     f"you entered: {email}"
                 )
             else:
+                regDetails()
                 return email
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
+def regDetails():
 
-            
+    sheet = SHEET.worksheet("customer-data")
+    new_cust = []
+    bonus = 500
+
+    name = input("Please enter your full name: ")
+    
+    while True:
+        n_password = input("Please enter your password: ")
+        v_password = input("Re enter your password for validation: ")
+        print("Hello we are now processing your data.")
+        if n_password != v_password:
+            print(f"Unfortunatelly {f_name} the password you" +
+                    " provided do not match the original, please" +
+                    " try again...")
+        else:
+            new_cust.append(email)
+            new_cust.append(name)
+            new_cust.append(v_password)
+            new_cust.append(bonus)
+            sheet.append_row(new_cust)
+            break
+
 
 def login():
     """
@@ -85,7 +112,7 @@ def chosen(choice):
     the appropriate new or existing user function
     """
     if choice == "1":
-        register()
+        registerEmail()
     elif choice == "2":
         login()
 
