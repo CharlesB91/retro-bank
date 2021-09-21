@@ -84,14 +84,26 @@ def login():
     """
     email_ver = SHEET.worksheet("customer-data")
     details = email_ver.col_values(1)
-    print(details)
+    password = email_ver.col_values(3)
+    user = []
+    
+    print("Please log in now using your email & password")
+    ename = input("Please enter your email: ")
+    epass = input("Please enter your password: ")
 
+    user.append(ename)
+    user.append(epass)
 
+    found = 0
 
-    # print("Please log in now using your email & password")
-    # ename = input("Please enter your email: ")
-    # epass = input("Please enter your password: ")
-
+    for i in zip(details, password):
+        if i == tuple(user):
+            found = 1
+            print("found")
+            return found
+    if found == 0:
+        print("The username or the password you provided might be wrong.\n")
+        return found
 
 
 
@@ -110,7 +122,7 @@ def welcome():
                     f"you entered: {choice}"
                 )
             else:
-                return choice
+                return chosen(choice)
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
@@ -127,14 +139,14 @@ def chosen(choice):
         login()
 
 
-def main():
-    """
-    Temp function to check all other functions work
-    """
-    choice = welcome()
-    chosen(choice)
+# def main():
+#     """
+#     Temp function to check all other functions work
+#     """
+#     choice = welcome()
+#     chosen(choice)
     
 
 print("Welcome to RETRO BANK !!")
-main()
+welcome()
     
