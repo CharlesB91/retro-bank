@@ -35,12 +35,18 @@ def register():
         try:
             email = input("Please enter your email address")
             einput = emailcheck(email)
-            if einput == email:
-                break
-            return email
-        except Exception:
-            print(f"You have entered: '{email}'. This is not a" +
-                  "valid email, please try again...")
+            if einput != email:
+                raise ValueError(
+                    "Please enter a valid email" +
+                    f"you entered: {email}"
+                )
+            else:
+                return email
+        except ValueError as e:
+            print(f"Invalid data: {e}, please try again.\n")
+
+
+            
 
 def login():
     """
