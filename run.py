@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from email_validator import validate_email,EmailNotValidError
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -12,17 +13,26 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('retro-bank')
 
+def emailcheck(emailinput):
+    try:
+        valid = validate_email(emailinput)
+        emailinput = valid.email
+        return emailinput
+    except EmailNotValidError as e:
+  # email is not valid, exception message is human-readable
+        print("The email you provided is not valid please try again\n")
+
+    
 
 def register():
     """
     Registation function - 
     allows the user to sign up for bank account
     """
-    print("Please register your details")
-    name = input("Please enter your name")
-    email = input("Please enter your email address")
-    password = input("Please create a password")
-    
+
+    email = input("Please enter email")
+    check = emailcheck(email)
+
 
 def login():
     """
@@ -39,7 +49,7 @@ def welcome():
     This function is the first option the user is given 
     to select if they are a new user or existing user
     """
-   while True:
+    while True:
         try:
             choice = input("If you are a new customer please enter 1:\n" +
                            "If you are already are an existing customer please enter 2:\n")
