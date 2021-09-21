@@ -49,4 +49,11 @@ def chosen(choice):
         login()
 
 
+def main():
+    choice = welcome()
+    chosen(choice)
+    
+
+print("Welcome to RETRO BANK !!")
+main()
     
