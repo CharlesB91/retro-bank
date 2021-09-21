@@ -27,4 +27,9 @@ def welcome():
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
             
-welcome()
+def chosen(choice):
+    if choice == "1":
+        register()
+    elif choice == "2":
+        login()
+    
