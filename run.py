@@ -70,8 +70,9 @@ def regDetails():
             new_cust.append(password)
             new_cust.append(bonus)
             sheet.append_row(new_cust)
-            print("WELCOME TO RETRO BANK ! " +
+            print("WELCOME TO RETRO BANK !" +
             " As a new customer you will receive £500 joining bonus")
+            login()
             break
 
 
@@ -81,9 +82,9 @@ def login():
     This fucntion will allow the exisiting user 
     log into their bank account
     """
-    print("This is to login - Exisiting User")
-    ename = input("Please enter your email")
-    epass = input("Please enter your password")
+    print("Please log in now using your email & password")
+    ename = input("Please enter your email: ")
+    epass = input("Please enter your password: ")
 
 
 def welcome():
