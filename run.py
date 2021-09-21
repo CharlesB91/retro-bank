@@ -12,6 +12,20 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('retro-bank')
 
+
+def register():
+    print("Please register your details")
+    name = input("Please enter your name")
+    email = input("Please enter your email address")
+    password = input("Please create a password")
+    
+
+def login():
+    print("This is to login - Exisiting User")
+    ename = input("Please enter your email")
+    epass = input("Please enter your password")
+
+
 def welcome():
    while True:
         try:
@@ -26,10 +40,13 @@ def welcome():
                 return choice
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
-            
+
+
 def chosen(choice):
     if choice == "1":
         register()
     elif choice == "2":
         login()
+
+
     
