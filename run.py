@@ -12,6 +12,8 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('retro-bank')
+global gsheet 
+gsheet = SHEET
 
 def emailcheck(emailinput):
     """
@@ -23,6 +25,7 @@ def emailcheck(emailinput):
         return emailinput
     except EmailNotValidError as e:
         print("The email you provided is not valid please try again\n")
+
 
 
 def registerEmail():
@@ -42,13 +45,15 @@ def registerEmail():
             if einput != email:
                 raise ValueError(
                     "Please enter a valid email" +
-                    f"you entered: {email}"
+                    f" you entered: {email}"
                 )
             else:
                 regDetails()
                 return email
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
+
+
 
 def regDetails():
 
@@ -65,11 +70,12 @@ def regDetails():
         elif password == "":
             print("Password Required")
         else:
+            worksheet = gsheet.add_worksheet(title=email,rows="100", cols="20")
             new_cust.append(email)
             new_cust.append(name)
             new_cust.append(password)
             new_cust.append(bonus)
-            sheet.append_row(new_cust)
+            worksheet.append_row(new_cust)
             print("WELCOME TO RETRO BANK !" +
             " As a new customer you will receive £500 joining bonus")
             login()
@@ -82,11 +88,8 @@ def login():
     This fucntion will allow the exisiting user 
     log into their bank account
     """
-    email_ver = SHEET.worksheet("customer-data")
-    details = email_ver.col_values(1)
-    password = email_ver.col_values(3)
-    balances = email_ver.col_values(4)
-    user = []
+
+    global ename
 
     while True:
         ename = input("Please enter your email address: ")
@@ -98,15 +101,26 @@ def login():
         else:
             break
 
+    global email_ver
+    global details
+    global password
+    global balances
+    global cell
+    email_ver = SHEET.worksheet(ename)
+    details = email_ver.col_values(1)
+    password = email_ver.col_values(3)
+    balances = email_ver.col_values(4)
+    user = []
+
     user.append(ename)
     user.append(epass)
 
-    found = 0
 
     for i in zip(details, password):
         if i == tuple(user):
             found = 1
             print("Successfully Verified")
+            mainMenu()
             return found
     if found == 0:
         print("The username or the password you provided might be wrong.\n")
@@ -127,10 +141,21 @@ def mainMenu():
                     "Enter 1 for new customer or 2 for existing customer," +
                     f"you entered: {choice}"
                 )
+            elif choice == "1":
+                balance()
             else:
                 return chosen(choice)
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
+
+def balance():
+    user = SHEET.worksheet(ename)
+    balance = user.col_values(4)
+    balances = str(balance)
+    print(f"The balance of your account is {balances}")
+    exit()
+
+
 
 
 
@@ -152,6 +177,7 @@ def welcome():
                 return chosen(choice)
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
+
 
 
 def chosen(choice):
