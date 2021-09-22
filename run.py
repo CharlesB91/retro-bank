@@ -85,6 +85,7 @@ def login():
     email_ver = SHEET.worksheet("customer-data")
     details = email_ver.col_values(1)
     password = email_ver.col_values(3)
+    balances = email_ver.col_values(4)
     user = []
     
     print("Please log in now using your email & password")
@@ -99,11 +100,31 @@ def login():
     for i in zip(details, password):
         if i == tuple(user):
             found = 1
-            print("found")
+            print("Successfully Verified")
             return found
     if found == 0:
         print("The username or the password you provided might be wrong.\n")
         return found
+
+
+def mainMenu():
+    while True:
+        try:
+            print("WELCOME YOUR ACCOUNTS DASHBOARD")
+            print("Please Select from the following menu")
+            print("1. Account Balance")
+            print("1. Deposit Money")
+            print("1. Withdrawl")
+            choice = input("")
+            if choice != "1" and choice != "2" and choice != "3":
+                raise ValueError(
+                    "Enter 1 for new customer or 2 for existing customer," +
+                    f"you entered: {choice}"
+                )
+            else:
+                return chosen(choice)
+        except ValueError as e:
+            print(f"Invalid data: {e}, please try again.\n")
 
 
 
@@ -138,14 +159,6 @@ def chosen(choice):
     elif choice == "2":
         login()
 
-
-# def main():
-#     """
-#     Temp function to check all other functions work
-#     """
-#     choice = welcome()
-#     chosen(choice)
-    
 
 print("Welcome to RETRO BANK !!")
 welcome()
