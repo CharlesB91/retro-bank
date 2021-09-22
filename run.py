@@ -110,8 +110,8 @@ def login():
             return found
     if found == 0:
         print("The username or the password you provided might be wrong.\n")
+        login()
         return found
-
 
 def mainMenu():
     while True:
