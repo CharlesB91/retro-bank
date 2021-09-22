@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from email_validator import validate_email,EmailNotValidError
+from email_validator import validate_email, EmailNotValidError
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -15,6 +15,7 @@ SHEET = GSPREAD_CLIENT.open('retro-bank')
 global gsheet 
 gsheet = SHEET
 
+
 def emailcheck(emailinput):
     """
     Email validator function
@@ -25,7 +26,6 @@ def emailcheck(emailinput):
         return emailinput
     except EmailNotValidError as e:
         print("The email you provided is not valid please try again\n")
-
 
 
 def registerEmail():
@@ -61,7 +61,6 @@ def regDetails():
     new_cust = []
     bonus = 500
 
-    
     while True:
         name = input("Please enter your full name: ")
         password = input("Please enter your password: ")
@@ -70,7 +69,7 @@ def regDetails():
         elif password == "":
             print("Password Required")
         else:
-            worksheet = gsheet.add_worksheet(title=email,rows="100", cols="20")
+            worksheet = gsheet.add_worksheet(title=email, rows="100", cols="20")
             new_cust.append(email)
             new_cust.append(name)
             new_cust.append(password)
@@ -90,6 +89,7 @@ def login():
     """
 
     global ename
+    
 
     while True:
         ename = input("Please enter your email address: ")
@@ -105,9 +105,10 @@ def login():
     global details
     global password
     global balances
-    global cell
+    global username
     email_ver = SHEET.worksheet(ename)
     details = email_ver.col_values(1)
+    username = email_ver.col_values(2)
     password = email_ver.col_values(3)
     balances = email_ver.col_values(4)
     user = []
@@ -127,10 +128,13 @@ def login():
         login()
         return found
 
+
+
+
 def mainMenu():
     while True:
         try:
-            print("WELCOME YOUR ACCOUNTS DASHBOARD")
+            print(f"WELCOME {username} TO YOUR ACCOUNTS DASHBOARD")
             print("Please Select from the following menu")
             print("1. Account Balance")
             print("1. Deposit Money")
@@ -148,14 +152,14 @@ def mainMenu():
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
+
+
 def balance():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     balances = str(balance)
     print(f"The balance of your account is {balances}")
     exit()
-
-
 
 
 
