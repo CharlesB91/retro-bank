@@ -87,10 +87,16 @@ def login():
     password = email_ver.col_values(3)
     balances = email_ver.col_values(4)
     user = []
-    
-    print("Please log in now using your email & password")
-    ename = input("Please enter your email: ")
-    epass = input("Please enter your password: ")
+
+    while True:
+        ename = input("Please enter your email address: ")
+        epass = input("Please enter your password: ")
+        if ename  == "":
+            print("Name is required")
+        elif epass == "":
+            print("Password Required")
+        else:
+            break
 
     user.append(ename)
     user.append(epass)
