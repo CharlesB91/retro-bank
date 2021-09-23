@@ -183,7 +183,7 @@ def balance():
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
-def withdrawl():
+def deposit():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
