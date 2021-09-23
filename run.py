@@ -223,7 +223,7 @@ def withdrawl():
                 )
             else:
                 if value >= choice:
-                    new = value + choice
+                    new = value - choice
                     newBalance = user.update("D1", new)
                 else:
                     print("You have insufficent funds")
