@@ -152,8 +152,10 @@ def mainMenu():
                 balance()
             elif choice == "2":
                 withdrawl()
+            elif choice == "3":
+                withdrawl()
             else:
-                return chosen(choice)
+                return choice
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
@@ -203,27 +205,27 @@ def withdrawl():
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
-# def deposit():
-#     user = SHEET.worksheet(ename)
-#     balance = user.col_values(4)
-#     value = balance[0]
-#     print(f"The balance of your account is {value}")
+def withdrawl():
+    user = SHEET.worksheet(ename)
+    balance = user.col_values(4)
+    value = balance[0]
+    value = int(value)
     
-#     while True:
-#         try:
-#             choice = input("If you would like to complete an other transctions please 1 for main menu " +
-#                            "If you would like to log out its 2:\n")
-#             if choice != "1" and choice != "2":
-#                 raise ValueError(
-#                     "Enter 1 for new customer or 2 for selection" +
-#                     f"you entered: {choice}"
-#                 )
-#             elif choice == "1":
-#                 mainMenu()
-#             else:
-#                 exit()
-#         except ValueError as e:
-#             print(f"Invalid data: {e}, please try again.\n")
+
+    while True:
+        try:
+            choice = input("How much would you like to withdraw ? ")
+            choice = int(choice)
+            if choice != int(choice):
+                raise ValueError(
+                    "Please enter a valid amount" +
+                    f"you entered: {choice}"
+                )
+            else:
+                new = value + choice
+                newBalance = user.update("D1", new)
+        except ValueError as e:
+            print(f"Invalid data: {e}, please try again.\n")
 
 
 
