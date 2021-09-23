@@ -94,6 +94,7 @@ def login():
 
     while True:
         ename = input("Please enter your email address: ")
+        ename = ename.lower()
         epass = input("Please enter your password: ")
         if ename  == "":
             print("Name is required")
