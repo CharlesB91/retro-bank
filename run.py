@@ -140,8 +140,8 @@ def mainMenu():
             print(f"WELCOME {username[0]} TO YOUR ACCOUNTS DASHBOARD")
             print("Please Select from the following menu")
             print("1. Account Balance")
-            print("1. Deposit Money")
-            print("1. Withdrawl")
+            print("2. Deposit Money")
+            print("3. Withdrawl")
             choice = input("")
             if choice != "1" and choice != "2" and choice != "3":
                 raise ValueError(
