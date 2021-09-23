@@ -41,6 +41,7 @@ def registerEmail():
         try:
             global email
             email = input("Please enter your email address: ")
+            email = email.lower()
             einput = emailcheck(email)
             if einput != email:
                 raise ValueError(
