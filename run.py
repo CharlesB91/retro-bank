@@ -55,7 +55,6 @@ def registerEmail():
             print(f"Invalid data: {e}, please try again.\n")
 
 
-
 def regDetails():
 
     sheet = SHEET.worksheet("customer-data")
@@ -81,7 +80,6 @@ def regDetails():
             " As a new customer you will receive £500 joining bonus")
             login()
             break
-
 
 
 def login():
@@ -145,7 +143,6 @@ def verify():
 
 
 
-
 def mainMenu():
     while True:
         try:
@@ -172,7 +169,6 @@ def mainMenu():
             print(f"Invalid data: {e}, please try again.\n")
 
 
-
 def balance():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
@@ -194,6 +190,7 @@ def balance():
                 exit()
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
+
 
 def deposit():
     user = SHEET.worksheet(ename)
@@ -235,6 +232,7 @@ def deposit():
                 exit()
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
+
 
 def withdrawl():
     user = SHEET.worksheet(ename)
@@ -281,12 +279,6 @@ def withdrawl():
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
-    
-
-
-
-
-
 
 def welcome():
     """
@@ -309,7 +301,6 @@ def welcome():
             print(f"Invalid data: {e}, please try again.\n")
 
 
-
 def chosen(choice):
     """
     Once a valid user selection has been made in the
@@ -320,6 +311,7 @@ def chosen(choice):
         registerEmail()
     elif choice == "2":
         login()
+
 
 print("------------------------")
 print("")
