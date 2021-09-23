@@ -151,7 +151,7 @@ def mainMenu():
             elif choice == "1":
                 balance()
             elif choice == "2":
-                withdrawl()
+                deposit()
             elif choice == "3":
                 withdrawl()
             else:
@@ -192,7 +192,7 @@ def withdrawl():
 
     while True:
         try:
-            choice = input("How much would you like to withdraw ? ")
+            choice = input("How much would you like to deposit ? ")
             choice = int(choice)
             if choice != int(choice):
                 raise ValueError(
@@ -200,7 +200,7 @@ def withdrawl():
                     f"you entered: {choice}"
                 )
             else:
-                new = value - choice
+                new = value + choice
                 newBalance = user.update("D1", new)
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
