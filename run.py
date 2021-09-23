@@ -136,7 +136,7 @@ def login():
 def mainMenu():
     while True:
         try:
-            print(f"WELCOME {username} TO YOUR ACCOUNTS DASHBOARD")
+            print(f"WELCOME {username[0]} TO YOUR ACCOUNTS DASHBOARD")
             print("Please Select from the following menu")
             print("1. Account Balance")
             print("1. Deposit Money")
@@ -159,8 +159,8 @@ def mainMenu():
 def balance():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
-    balances = str(balance)
-    print(f"The balance of your account is {balances}")
+    value = balance[0]
+    print(f"The balance of your account is {value}")
     exit()
 
 
