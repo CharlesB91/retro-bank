@@ -241,6 +241,7 @@ def welcome():
     """
     while True:
         try:
+            print("")
             choice = input("If you are a new customer please enter 1:\n" +
                            "If you are already are an existing customer please enter 2:\n")
             if choice != "1" and choice != "2":
@@ -266,7 +267,10 @@ def chosen(choice):
     elif choice == "2":
         login()
 
-
+print("------------------------")
+print("")
 print("Welcome to RETRO BANK !!")
+print("")
+print("------------------------")
 welcome()
     
