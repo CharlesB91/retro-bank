@@ -273,4 +273,3 @@ print("Welcome to RETRO BANK !!")
 print("")
 print("------------------------")
 welcome()
-    
