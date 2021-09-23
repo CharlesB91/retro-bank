@@ -215,6 +215,24 @@ def deposit():
                 new = value + choice
                 newBalance = user.update("D1", new)
                 print(f"The balance of your account is now {new}")
+                break
+        except ValueError as e:
+            print(f"Invalid data: {e}, please try again.\n")
+
+
+    while True:
+        try:
+            choice = input("If you would like to complete an other transctions please 1 for main menu " +
+                           "If you would like to log out its 2:\n")
+            if choice != "1" and choice != "2":
+                raise ValueError(
+                    "Enter 1 for new customer or 2 for selection" +
+                    f"you entered: {choice}"
+                )
+            elif choice == "1":
+                mainMenu()
+            else:
+                exit()
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
@@ -238,11 +256,35 @@ def withdrawl():
                 if value >= choice:
                     new = value - choice
                     newBalance = user.update("D1", new)
+                    print(f"The balance of your account us {new}")
+                    break
                 else:
                     print("You have insufficent funds \n"+
                     f"The Balance of your account is {value}")
+                    break
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
+
+    while True:
+        try:
+            choice = input("If you would like to complete an other transctions please 1 for main menu " +
+                           "If you would like to log out its 2:\n")
+            if choice != "1" and choice != "2":
+                raise ValueError(
+                    "Enter 1 for new customer or 2 for selection" +
+                    f"you entered: {choice}"
+                )
+            elif choice == "1":
+                mainMenu()
+            else:
+                exit()
+        except ValueError as e:
+            print(f"Invalid data: {e}, please try again.\n")
+
+    
+
+
+
 
 
 
