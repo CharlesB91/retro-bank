@@ -222,8 +222,11 @@ def withdrawl():
                     f"you entered: {choice}"
                 )
             else:
-                new = value + choice
-                newBalance = user.update("D1", new)
+                if value >= choice:
+                    new = value + choice
+                    newBalance = user.update("D1", new)
+                else:
+                    print("You have insufficent funds")
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
