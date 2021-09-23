@@ -202,6 +202,7 @@ def deposit():
             else:
                 new = value + choice
                 newBalance = user.update("D1", new)
+                print(f"The balance of your account is now {new}")
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
@@ -226,7 +227,8 @@ def withdrawl():
                     new = value - choice
                     newBalance = user.update("D1", new)
                 else:
-                    print("You have insufficent funds")
+                    print("You have insufficent funds \n"+
+                    f"The Balance of your account is {value}")
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
 
