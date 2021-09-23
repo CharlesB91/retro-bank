@@ -19,6 +19,7 @@ gsheet = SHEET
 def emailcheck(emailinput):
     """
     Email validator function
+    Checks the new email is valid
     """
     try:
         valid = validate_email(emailinput)
@@ -56,6 +57,10 @@ def registerEmail():
 
 
 def regDetails():
+    """
+    This function adds the new customers
+    details to the google sheet long with new balance
+    """
 
     sheet = SHEET.worksheet("customer-data")
     new_cust = []
@@ -84,8 +89,8 @@ def regDetails():
 
 def login():
     """
-    This fucntion will allow the exisiting user 
-    log into their bank account
+    This function checks the email address is valid in the 
+    google sheets ie worksheet.
     """
 
     global ename
@@ -113,6 +118,10 @@ def login():
     
 
 def verify():
+    """
+    This function checks the email address and password is correct
+    so the customer can log into the dash board.
+    """
 
     global email_ver
     global details
