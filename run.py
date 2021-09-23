@@ -91,6 +91,9 @@ def login():
     """
 
     global ename
+    global epass
+    worksheet_list = gsheet.worksheets()
+    worksheet_list2 = str(worksheet_list)
     
 
     while True:
@@ -103,6 +106,15 @@ def login():
             print("Password Required")
         else:
             break
+
+    if ename in worksheet_list2:
+        verify()
+    else:
+        print("email invalid")
+        login()
+    
+
+def verify():
 
     global email_ver
     global details
