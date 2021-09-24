@@ -209,6 +209,10 @@ def balance():
             elif choice == "1":
                 mainMenu()
             else:
+                print("")
+                print(Fore.YELLOW + "Thank You For Banking With Us")
+                print(Fore.YELLOW + "Have A Nice Day")
+                print("")
                 exit()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
@@ -241,7 +245,7 @@ def deposit():
 
     while True:
         try:
-            choice = input("If you would like to complete an other transactions please 1 for main menu " +
+            choice = input("If you would like to complete an other transaction please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
@@ -251,6 +255,10 @@ def deposit():
             elif choice == "1":
                 mainMenu()
             else:
+                print("")
+                print(Fore.YELLOW + "Thank You For Banking With Us")
+                print(Fore.YELLOW + "Have A Nice Day")
+                print("")
                 exit()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
@@ -287,7 +295,7 @@ def withdrawal():
 
     while True:
         try:
-            choice = input("If you would like to complete an other transactions please 1 for main menu " +
+            choice = input("If you would like to complete an other transaction please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
@@ -297,6 +305,10 @@ def withdrawal():
             elif choice == "1":
                 mainMenu()
             else:
+                print("")
+                print(Fore.YELLOW + "Thank You For Banking With Us")
+                print(Fore.YELLOW + "Have A Nice Day")
+                print("")
                 exit()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
@@ -310,8 +322,8 @@ def welcome():
     while True:
         try:
             print("")
-            print(Fore.BLUE + Style.BRIGHT + "If you are a new customer please enter 1:")
-            print(Fore.YELLOW + Style.BRIGHT + "If you are already are an existing customer please enter 2:")
+            print(Fore.GREEN + Style.BRIGHT + "If you are a new customer please enter 1:")
+            print(Fore.GREEN + Style.BRIGHT + "If you are already are an existing customer please enter 2:")
             print("")
             choice = input("")
             if choice != "1" and choice != "2":
@@ -337,7 +349,7 @@ def chosen(choice):
         login()
 
 print("")
-print(Fore.GREEN +"+++++++++++++++++++++++++++++++++++")
+print(Fore.GREEN +"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
 print("")
 print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "               WELCOME             ")
 print("")
@@ -345,5 +357,5 @@ print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "                 TO            
 print("")
 print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "              RETRO BANK           ")
 print("")
-print(Fore.GREEN +"+++++++++++++++++++++++++++++++++++")
+print(Fore.GREEN +"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
 welcome()
