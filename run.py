@@ -29,7 +29,7 @@ def emailcheck(emailinput):
         emailinput = valid.email
         return emailinput
     except EmailNotValidError as e:
-        print("The email you provided is not valid please try again\n")
+        print(Fore.RED + "The email you provided is not valid please try again\n")
 
 
 def registerEmail():
@@ -38,8 +38,7 @@ def registerEmail():
     while loop will continue until a valid email is input
     """
 
-    print("Welcome to retro bank As a new customer\n" +
-        "Please complete the following fields to sign up for an account\n")
+    print(Fore.GREEN + "Please complete the following fields to sign up for an account:\n")
 
     while True:
         try:
@@ -48,7 +47,7 @@ def registerEmail():
             email = email.lower()
             einput = emailcheck(email)
             if einput != email:
-                raise ValueError(
+                raise ValueError(Fore.RED + 
                     "Please enter a valid email" +
                     f" you entered: {email}"
                 )
@@ -56,7 +55,7 @@ def registerEmail():
                 regDetails()
                 return email
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
 def regDetails():
@@ -74,9 +73,9 @@ def regDetails():
         name = input("Please enter your full name: ")
         password = input("Please enter your password: ")
         if name == "":
-            print("Name is required")
+            print(Fore.RED + "Name is required")
         elif password == "":
-            print("Password Required")
+            print(Fore.RED + "Password Required")
         else:
             worksheet = gsheet.add_worksheet(title=email, rows="100", cols="20")
             new_cust.append(email)
@@ -84,8 +83,10 @@ def regDetails():
             new_cust.append(password)
             new_cust.append(bonus)
             worksheet.append_row(new_cust)
-            print("WELCOME TO RETRO BANK !" +
+            print("")
+            print(Fore.GREEN + "WELCOME TO RETRO BANK !" +
             " As a new customer you will receive £500 joining bonus")
+            print("")
             login()
             break
 
@@ -107,7 +108,7 @@ def login():
             ename = str(ename)
             email_ver = gsheet.worksheet(ename)
         except:
-            print("Invalid Email ! \nPlease try again: ")
+            print(Fore.RED + "Invalid Email ! \nPlease try again: ")
             login()
         else:
             verify()
@@ -145,8 +146,8 @@ def verify():
             mainMenu()
             return found
     if found == 0:
-        print("The username or the password you provided might be wrong.\n")
-        print("Please note passwords are case sensitive.\n")
+        print(Fore.RED + "The username or the password you provided might be wrong.\n")
+        print(Fore.RED + "Please note passwords are case sensitive.\n")
         login()
         return found
 
@@ -155,17 +156,18 @@ def mainMenu():
     while True:
         try:
             print("")
-            print(f"Welcome {username[0]} To Your Accounts Dashboard")
+            print(Fore.GREEN + f"Welcome {username[0]} To Your Retro Account Dashboard")
             print("")
             print("Please Select from the following menu:")
             print("")
-            print("1. Account Balance")
-            print("2. Deposit Money")
-            print("3. Withdrawal")
+            print(Fore.BLACK + Back.GREEN + "1. Account Balance ")
+            print(Fore.BLACK + Back.YELLOW +"2. Deposit Money ")
+            print(Fore.BLACK + Back.BLUE +"3. Withdrawal ")
+            print(Fore.BLACK + Back.RED +"4. LogOut ")
             print("")
             choice = input("")
-            if choice != "1" and choice != "2" and choice != "3":
-                raise ValueError(
+            if choice != "1" and choice != "2" and choice != "3" and choice != "4":
+                raise ValueError(Fore.RED + 
                     "Enter 1 for new customer or 2 for existing customer," +
                     f"you entered: {choice}"
                 )
@@ -175,24 +177,31 @@ def mainMenu():
                 deposit()
             elif choice == "3":
                 withdrawal()
+            elif choice == "4":
+                print("")
+                print(Fore.YELLOW + "Thank You For Banking With Us")
+                print(Fore.YELLOW + "Have A Nice Day")
+                print("")
+                exit()
             else:
                 return choice
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
 def balance():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
-    print(f"The balance of your account is {value}")
+    print(Fore.GREEN + f"The balance of your account is {value}")
     
     while True:
         try:
+            
             choice = input("If you would like to complete an other transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
-                raise ValueError(
+                raise ValueError(Fore.RED +
                     "Enter 1 for new customer or 2 for selection" +
                     f"you entered: {choice}"
                 )
@@ -201,7 +210,7 @@ def balance():
             else:
                 exit()
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
 def deposit():
@@ -216,17 +225,17 @@ def deposit():
             choice = input("How much would you like to deposit ? ")
             choice = int(choice)
             if choice != int(choice):
-                raise ValueError(
+                raise ValueError(Fore.RED +
                     "Please enter a valid amount" +
                     f"you entered: {choice}"
                 )
             else:
                 new = value + choice
                 newBalance = user.update("D1", new)
-                print(f"The balance of your account is now {new}")
+                print(Fore.GREEN + f"The balance of your account is now {new}")
                 break
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
     while True:
@@ -234,7 +243,7 @@ def deposit():
             choice = input("If you would like to complete an other transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
-                raise ValueError(
+                raise ValueError(Fore.RED +
                     "Enter 1 for new customer or 2 for selection" +
                     f"you entered: {choice}"
                 )
@@ -243,7 +252,7 @@ def deposit():
             else:
                 exit()
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
 def withdrawal():
@@ -258,7 +267,7 @@ def withdrawal():
             choice = input("How much would you like to withdraw ? ")
             choice = int(choice)
             if choice != int(choice):
-                raise ValueError(
+                raise ValueError(Fore.RED +
                     "Please enter a valid amount" +
                     f"you entered: {choice}"
                 )
@@ -266,21 +275,21 @@ def withdrawal():
                 if value >= choice:
                     new = value - choice
                     newBalance = user.update("D1", new)
-                    print(f"The balance of your account us {new}")
+                    print(Fore.GREEN + f"The balance of your account us {new}")
                     break
                 else:
-                    print("You have insufficient funds \n"+
-                    f"The Balance of your account is {value}")
+                    print(Fore.RED + "You have insufficient funds")
+                    print(Fore.GREEN + f"The Balance of your account is {value} \n")
                     break
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
     while True:
         try:
             choice = input("If you would like to complete an other transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
-                raise ValueError(
+                raise ValueError(Fore.RED +
                     "Enter 1 for new customer or 2 for selection" +
                     f"you entered: {choice}"
                 )
@@ -289,7 +298,7 @@ def withdrawal():
             else:
                 exit()
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
 def welcome():
@@ -300,19 +309,19 @@ def welcome():
     while True:
         try:
             print("")
-            print(Back.RED + Style.BRIGHT + "If you are a new customer please enter 1:")
-            print(Back.BLUE + Style.BRIGHT + "If you are already are an existing customer please enter 2:")
+            print(Fore.BLUE + Style.BRIGHT + "If you are a new customer please enter 1:")
+            print(Fore.YELLOW + Style.BRIGHT + "If you are already are an existing customer please enter 2:")
             print("")
             choice = input("")
             if choice != "1" and choice != "2":
-                raise ValueError(
+                raise ValueError(Fore.RED +
                     "Enter 1 for new customer or 2 for existing customer," +
                     f"you entered: {choice}"
                 )
             else:
                 return chosen(choice)
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
 def chosen(choice):
