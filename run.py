@@ -142,11 +142,11 @@ def verify():
     for i in zip(details, password):
         if i == tuple(user):
             found = 1
-            print("Successfully Verified")
             mainMenu()
             return found
     if found == 0:
         print("The username or the password you provided might be wrong.\n")
+        print("Please note passwords are case sensitive.\n")
         login()
         return found
 
@@ -154,11 +154,15 @@ def verify():
 def mainMenu():
     while True:
         try:
-            print(f"WELCOME {username[0]} TO YOUR ACCOUNTS DASHBOARD")
-            print("Please Select from the following menu")
+            print("")
+            print(f"Welcome {username[0]} To Your Accounts Dashboard")
+            print("")
+            print("Please Select from the following menu:")
+            print("")
             print("1. Account Balance")
             print("2. Deposit Money")
             print("3. Withdrawal")
+            print("")
             choice = input("")
             if choice != "1" and choice != "2" and choice != "3":
                 raise ValueError(
