@@ -33,11 +33,11 @@ def emailcheck(emailinput):
 def registerEmail():
     """
     This fucntion checks the email address is correct 
-    while loop will continue until a valid emai is input
+    while loop will continue until a valid email is input
     """
 
     print("Welcome to retro bank As a new customer\n" +
-        "Please complete the following fileds to sign up for an account\n")
+        "Please complete the following fields to sign up for an account\n")
 
     while True:
         try:
@@ -105,7 +105,7 @@ def login():
             ename = str(ename)
             email_ver = gsheet.worksheet(ename)
         except:
-            print("Error")
+            print("Invalid Email ! \nPlease try again: ")
             login()
         else:
             verify()
@@ -157,7 +157,7 @@ def mainMenu():
             print("Please Select from the following menu")
             print("1. Account Balance")
             print("2. Deposit Money")
-            print("3. Withdrawl")
+            print("3. Withdrawal")
             choice = input("")
             if choice != "1" and choice != "2" and choice != "3":
                 raise ValueError(
@@ -169,7 +169,7 @@ def mainMenu():
             elif choice == "2":
                 deposit()
             elif choice == "3":
-                withdrawl()
+                withdrawal()
             else:
                 return choice
         except ValueError as e:
@@ -184,7 +184,7 @@ def balance():
     
     while True:
         try:
-            choice = input("If you would like to complete an other transctions please 1 for main menu " +
+            choice = input("If you would like to complete an other transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
                 raise ValueError(
@@ -226,7 +226,7 @@ def deposit():
 
     while True:
         try:
-            choice = input("If you would like to complete an other transctions please 1 for main menu " +
+            choice = input("If you would like to complete an other transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
                 raise ValueError(
@@ -241,7 +241,7 @@ def deposit():
             print(f"Invalid data: {e}, please try again.\n")
 
 
-def withdrawl():
+def withdrawal():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
@@ -264,7 +264,7 @@ def withdrawl():
                     print(f"The balance of your account us {new}")
                     break
                 else:
-                    print("You have insufficent funds \n"+
+                    print("You have insufficient funds \n"+
                     f"The Balance of your account is {value}")
                     break
         except ValueError as e:
@@ -272,7 +272,7 @@ def withdrawl():
 
     while True:
         try:
-            choice = input("If you would like to complete an other transctions please 1 for main menu " +
+            choice = input("If you would like to complete an other transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
                 raise ValueError(
