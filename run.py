@@ -2,6 +2,9 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from email_validator import validate_email, EmailNotValidError
+import colorama 
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -15,7 +18,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('retro-bank')
 global gsheet 
 gsheet = SHEET
-
 
 def emailcheck(emailinput):
     """
@@ -147,7 +149,6 @@ def verify():
         print("The username or the password you provided might be wrong.\n")
         login()
         return found
-
 
 
 def mainMenu():
@@ -295,8 +296,10 @@ def welcome():
     while True:
         try:
             print("")
-            choice = input("If you are a new customer please enter 1:\n" +
-                           "If you are already are an existing customer please enter 2:\n")
+            print(Back.RED + Style.BRIGHT + "If you are a new customer please enter 1:")
+            print(Back.BLUE + Style.BRIGHT + "If you are already are an existing customer please enter 2:")
+            print("")
+            choice = input("")
             if choice != "1" and choice != "2":
                 raise ValueError(
                     "Enter 1 for new customer or 2 for existing customer," +
@@ -319,10 +322,12 @@ def chosen(choice):
     elif choice == "2":
         login()
 
-
-print("------------------------")
 print("")
-print("Welcome to RETRO BANK !!")
+print(Fore.GREEN +"------------------------")
+print(Fore.BLACK + Back.YELLOW + "WELCOME")
 print("")
-print("------------------------")
+print(Fore.BLACK + Back.YELLOW + "TO")
+print("")
+print(Fore.BLACK + Back.YELLOW + "RETRO BANK ")
+print(Fore.GREEN +"------------------------")
 welcome()
