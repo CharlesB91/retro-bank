@@ -1,3 +1,4 @@
+   
 import gspread
 from google.oauth2.service_account import Credentials
 from email_validator import validate_email, EmailNotValidError
@@ -95,33 +96,29 @@ def login():
 
     global ename
     global epass
-    worksheet_list = gsheet.worksheets()
-    worksheet_list2 = str(worksheet_list)
-    
+   
 
     while True:
-        ename = input("Please enter your email address: ")
-        ename = ename.lower()
-        epass = input("Please enter your password: ")
-        if ename  == "":
-            print("Name is required")
-        elif epass == "":
-            print("Password Required")
+        try:
+            ename = input("Please enter your email address: ")
+            ename = ename.lower()
+            ename = str(ename)
+            email_ver = gsheet.worksheet(ename)
+        except:
+            print("Error")
+            login()
         else:
+            verify()
             break
 
-    if ename in worksheet_list2:
-        verify()
-    else:
-        print("email invalid")
-        login()
-    
 
 def verify():
     """
     This function checks the email address and password is correct
     so the customer can log into the dash board.
     """
+
+    epass = input("Please enter your password: ")
 
     global email_ver
     global details
@@ -138,6 +135,7 @@ def verify():
     user.append(ename)
     user.append(epass)
 
+    found = 0
 
     for i in zip(details, password):
         if i == tuple(user):
