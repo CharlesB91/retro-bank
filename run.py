@@ -86,6 +86,7 @@ def regDetails():
             print("")
             print(Fore.GREEN + "WELCOME TO RETRO BANK !" +
             " As a new customer you will receive £500 joining bonus")
+            print(Fore.GREEN + "Please now log in:")
             print("")
             login()
             break
@@ -275,7 +276,7 @@ def withdrawal():
                 if value >= choice:
                     new = value - choice
                     newBalance = user.update("D1", new)
-                    print(Fore.GREEN + f"The balance of your account us {new}")
+                    print(Fore.GREEN + f"The balance of your account is now {new}")
                     break
                 else:
                     print(Fore.RED + "You have insufficient funds")
