@@ -68,10 +68,19 @@ def regDetails():
     new_cust = []
     bonus = 500
     welcome = float(bonus)
-    
 
     while True:
         name = input("Please enter your full name: ")
+        nameNoSpace = name.replace(" ", "")
+        if nameNoSpace.isalpha():
+            break
+        else:
+            print("Name must not contain numbers")
+            regDetails()
+    
+
+    while True:
+        # name = input("Please enter your full name: ")
         password = input("Please enter your password: ")
         if name == "":
             print(Fore.RED + "Name is required")
@@ -110,7 +119,7 @@ def login():
             ename = str(ename)
             email_ver = gsheet.worksheet(ename)
         except:
-            print(Fore.RED + "Invalid Email ! \nPlease try again: ")
+            print(Fore.RED + "Invalid Email ! \nPlease try again")
             login()
         else:
             verify()
@@ -148,8 +157,8 @@ def verify():
             mainMenu()
             return found
     if found == 0:
-        print(Fore.RED + "The username or the password you provided might be wrong.\n")
-        print(Fore.RED + "Please note passwords are case sensitive.\n")
+        print(Fore.RED + "Incorrect Password !")
+        print(Fore.RED + "Please note passwords are case sensitive")
         login()
         return found
 
@@ -228,7 +237,7 @@ def deposit():
 
     while True:
         try:
-            choice = input("How much would you like to deposit ? (Inputs should not include commas !) ")
+            choice = input("How much would you like to deposit ?")
             choice = choice.replace(',','')
             choice = float(choice)
             if choice != float(choice):
@@ -275,7 +284,7 @@ def withdrawal():
 
     while True:
         try:
-            choice = input("How much would you like to withdraw ? (Inputs should not include commas !) ")
+            choice = input("How much would you like to withdraw ?")
             choice = choice.replace(',','')
             choice = float(choice)
             if choice != float(choice):
