@@ -75,13 +75,14 @@ def regDetails():
         if nameNoSpace.isalpha():
             break
         else:
-            print("Name must not contain numbers")
+            print(Fore.RED + f"Name must not contain numbers. You entered {nameNoSpace}")
             regDetails()
     
 
     while True:
-        # name = input("Please enter your full name: ")
         password = input("Please enter your password: ")
+        name = name.lower()
+        name = name.title()
         if name == "":
             print(Fore.RED + "Name is required")
         elif password == "":
@@ -237,7 +238,7 @@ def deposit():
 
     while True:
         try:
-            choice = input("How much would you like to deposit ?")
+            choice = input("How much would you like to deposit ? ")
             choice = choice.replace(',','')
             choice = float(choice)
             if choice != float(choice):
@@ -284,7 +285,7 @@ def withdrawal():
 
     while True:
         try:
-            choice = input("How much would you like to withdraw ?")
+            choice = input("How much would you like to withdraw ? ")
             choice = choice.replace(',','')
             choice = float(choice)
             if choice != float(choice):
