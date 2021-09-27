@@ -180,7 +180,7 @@ def mainMenu():
             choice = input("")
             if choice != "1" and choice != "2" and choice != "3" and choice != "4":
                 raise ValueError(Fore.RED + 
-                    "Enter 1 for new customer or 2 for existing customer," +
+                    "Enter 1 for Balance, 2 for deposits, 3 for withdrawals, 4 to logout\n" +
                     f"you entered: {choice}"
                 )
             elif choice == "1":
