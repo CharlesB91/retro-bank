@@ -301,7 +301,7 @@ def withdrawal():
                     break
                 else:
                     print(Fore.RED + "You have insufficient funds")
-                    print(Fore.GREEN + f"The Balance of your account is {value} \n")
+                    print(Fore.GREEN + f"The Balance of your account is £{value} \n")
                     break
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
