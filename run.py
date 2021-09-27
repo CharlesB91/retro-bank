@@ -195,7 +195,7 @@ def balance():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
-    print(Fore.GREEN + f"The balance of your account is {value}")
+    print(Fore.GREEN + f"The balance of your account is £{value}")
     
     while True:
         try:
@@ -228,7 +228,8 @@ def deposit():
 
     while True:
         try:
-            choice = input("How much would you like to deposit ? ")
+            choice = input("How much would you like to deposit ? (Inputs should not include commas !) ")
+            choice = choice.replace(',','')
             choice = float(choice)
             if choice != float(choice):
                 raise ValueError(Fore.RED +
@@ -238,7 +239,7 @@ def deposit():
             else:
                 new = value + choice
                 newBalance = user.update("D1", new)
-                print(Fore.GREEN + f"The balance of your account is now {new}")
+                print(Fore.GREEN + f"The balance of your account is now £{new}")
                 break
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
@@ -274,7 +275,8 @@ def withdrawal():
 
     while True:
         try:
-            choice = input("How much would you like to withdraw ? ")
+            choice = input("How much would you like to withdraw ? (Inputs should not include commas !) ")
+            choice = choice.replace(',','')
             choice = float(choice)
             if choice != float(choice):
                 raise ValueError(Fore.RED +
@@ -285,7 +287,7 @@ def withdrawal():
                 if value >= choice:
                     new = value - choice
                     newBalance = user.update("D1", new)
-                    print(Fore.GREEN + f"The balance of your account is now {new}")
+                    print(Fore.GREEN + f"The balance of your account is now £{new}")
                     break
                 else:
                     print(Fore.RED + "You have insufficient funds")
