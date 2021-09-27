@@ -247,14 +247,14 @@ def deposit():
 
     while True:
         try:
-            choice = input("If you would like to complete an other transaction please 1 for main menu " +
+            choiceSecond = input("If you would like to complete an other transaction please 1 for main menu " +
                            "If you would like to log out its 2:\n")
-            if choice != "1" and choice != "2":
+            if choiceSecond != "1" and choiceSecond != "2":
                 raise ValueError(Fore.RED +
                     "Enter 1 for new customer or 2 for selection" +
-                    f"you entered: {choice}"
+                    f"you entered: {choiceSecond}"
                 )
-            elif choice == "1":
+            elif choiceSecond == "1":
                 mainMenu()
             else:
                 print("")
@@ -298,14 +298,14 @@ def withdrawal():
 
     while True:
         try:
-            choice = input("If you would like to complete an other transaction please 1 for main menu " +
+            choiceSecond = input("If you would like to complete an other transaction please 1 for main menu " +
                            "If you would like to log out its 2:\n")
-            if choice != "1" and choice != "2":
+            if choiceSecond != "1" and choiceSecond != "2":
                 raise ValueError(Fore.RED +
                     "Enter 1 for new customer or 2 for selection" +
-                    f"you entered: {choice}"
+                    f"you entered: {choiceSecond}"
                 )
-            elif choice == "1":
+            elif choiceSecond == "1":
                 mainMenu()
             else:
                 print("")
