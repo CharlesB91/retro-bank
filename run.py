@@ -21,7 +21,7 @@ gsheet = SHEET
 
 def emailcheck(emailinput):
     """
-    Email validator function
+    Email validator function.
     Checks the new email is valid
     """
     try:
@@ -34,7 +34,7 @@ def emailcheck(emailinput):
 
 def registerEmail():
     """
-    This fucntion checks the email address is correct 
+    This function checks the email address is correct,
     while loop will continue until a valid email is input
     """
 
@@ -60,8 +60,8 @@ def registerEmail():
 
 def regDetails():
     """
-    This function adds the new customers
-    details to the google sheet long with new balance
+    This function checks a valid name has been input,
+    then adds the customer data google sheet long with new balance
     """
 
     sheet = SHEET.worksheet("customer-data")
@@ -76,7 +76,7 @@ def regDetails():
             break
         else:
             print(Fore.RED + f"Name must not contain numbers. You entered {nameNoSpace}")
-            regDetails()
+            
     
 
     while True:
@@ -106,7 +106,7 @@ def regDetails():
 def login():
     """
     This function checks the email address is valid in the 
-    google sheets ie worksheet.
+    google sheet when customer attepmts to log in
     """
 
     global ename
@@ -129,8 +129,8 @@ def login():
 
 def verify():
     """
-    This function checks the email address and password is correct
-    so the customer can log into the dash board.
+    This function checks the password is correct
+    so the customer can log into the account dash board.
     """
 
     epass = input("Please enter your password: ")
@@ -165,6 +165,14 @@ def verify():
 
 
 def mainMenu():
+    """
+    Once the customer is successfully logged in, 
+    they will be presented with options:
+    1. View Balance
+    2. Deposits
+    3. Withdraw
+    4. Logout
+    """
     while True:
         try:
             print("")
@@ -202,6 +210,10 @@ def mainMenu():
 
 
 def balance():
+    """
+    This function allows the user to view
+    their real time balance from the google sheet
+    """
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
@@ -230,6 +242,11 @@ def balance():
 
 
 def deposit():
+    """
+    This function allows the user to deposit money.
+    Once they have completed this transaction theyre
+    new balance will display
+    """
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
@@ -277,6 +294,10 @@ def deposit():
 
 
 def withdrawal():
+    """
+    This function allows the user to withdraw money.
+    This will check if they have sufficent funds to do so
+    """
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
