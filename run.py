@@ -67,6 +67,7 @@ def regDetails():
     sheet = SHEET.worksheet("customer-data")
     new_cust = []
     bonus = 500
+    welcome = float(bonus)
     
 
     while True:
@@ -81,7 +82,7 @@ def regDetails():
             new_cust.append(email)
             new_cust.append(name)
             new_cust.append(password)
-            new_cust.append(bonus)
+            new_cust.append(welcome)
             worksheet.append_row(new_cust)
             print("")
             print(Fore.GREEN + "WELCOME TO RETRO BANK !" +
@@ -222,14 +223,14 @@ def deposit():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
-    value = int(value)
+    value = float(value)
     
 
     while True:
         try:
             choice = input("How much would you like to deposit ? ")
-            choice = int(choice)
-            if choice != int(choice):
+            choice = float(choice)
+            if choice != float(choice):
                 raise ValueError(Fore.RED +
                     "Please enter a valid amount" +
                     f"you entered: {choice}"
@@ -268,14 +269,14 @@ def withdrawal():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
-    value = int(value)
+    value = float(value)
     
 
     while True:
         try:
             choice = input("How much would you like to withdraw ? ")
-            choice = int(choice)
-            if choice != int(choice):
+            choice = float(choice)
+            if choice != float(choice):
                 raise ValueError(Fore.RED +
                     "Please enter a valid amount" +
                     f"you entered: {choice}"
