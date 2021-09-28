@@ -362,6 +362,13 @@ def withdrawal():
 
 
 def mortgageCalc():
+    """
+    This fucntion gives the user
+    an idea of how much they could
+    borrow if they were looking to 
+    take a mortgage based on their
+    income & outgoings
+    """
 
     while True:
         try:
