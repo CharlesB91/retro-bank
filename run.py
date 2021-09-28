@@ -380,7 +380,8 @@ def mortgageCalc():
                 totalOut = outgoing * 12
                 total = choice - totalOut
                 total = total * 4.75
-                print(f"The indicitive amount you could borrow is £{total}\n")
+                print("")
+                print(Fore.GREEN + f"The indicitive amount you could borrow is £{total}\n")
                 break
         except ValueError as e:
                 print(Fore.RED + f"Invalid data: {e}, please try again.\n")
@@ -428,7 +429,7 @@ def welcome():
             print("")
             print(Fore.GREEN + Style.BRIGHT + "If you are a new customer" +
                   "please enter 1:")
-            print(Fore.GREEN + Style.BRIGHT + "If you are already are an" + "
+            print(Fore.GREEN + Style.BRIGHT + "If you are already are an" +
                   "existing customer please enter 2:")
             print("")
             choice = input("")
