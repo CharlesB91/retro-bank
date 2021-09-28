@@ -368,8 +368,7 @@ def mortgageCalc():
                 )
             else:
                 totalOut = outgoing * 12
-                annual = choice * 12
-                total = annual - totalOut
+                total = choice - totalOut
                 total = total * 4.75
                 print(f"The indicitive amount you could borrow is £{total}\n")
                 break
