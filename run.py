@@ -78,7 +78,7 @@ def regDetails():
             break
         else:
             print(Fore.RED + "Name must not contain numbers." +
-                  f"You entered {nameNoSpace}")
+                  f" of special characters. You entered {nameNoSpace}")
 
     while True:
         password = input("Please enter your password: ")
@@ -178,7 +178,7 @@ def mainMenu():
         try:
             print("")
             print(Fore.GREEN + f"Welcome {username[0]}" +
-                  "To Your Retro Account Dashboard")
+                  " To Your Retro Account Dashboard")
             print("")
             print("Please Select from the following menu:")
             print("")
@@ -425,11 +425,14 @@ def welcome():
     print("")
     print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
     print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "     WELCOME       ")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + 
+    "              WELCOME               ")
     print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "       TO          ")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + 
+    "                TO                  ")
     print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "    RETRO BANK     ")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + 
+    "            RETRO BANK              ")
     print("")
     print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
     while True:
