@@ -19,6 +19,7 @@ SHEET = GSPREAD_CLIENT.open('retro-bank')
 global gsheet 
 gsheet = SHEET
 
+
 def emailcheck(emailinput):
     """
     Email validator function.
@@ -95,7 +96,7 @@ def regDetails():
             new_cust.append(welcome)
             worksheet.append_row(new_cust)
             print("")
-            print(Fore.GREEN + "WELCOME TO RETRO BANK !" +
+            print(Fore.GREEN + "WELCOME TO RETRO BANK" +
             " As a new customer you will receive £500 joining bonus")
             print(Fore.GREEN + "Please now log in:")
             print("")
@@ -183,10 +184,11 @@ def mainMenu():
             print(Fore.BLACK + Back.GREEN + "1. Account Balance ")
             print(Fore.BLACK + Back.YELLOW +"2. Deposit Money ")
             print(Fore.BLACK + Back.BLUE +"3. Withdrawal ")
-            print(Fore.BLACK + Back.RED +"4. LogOut ")
+            print(Fore.BLACK + Back.GREEN +"4. Mortgage - How Much Can I Borrow ")
+            print(Fore.BLACK + Back.RED +"5. Logout ")
             print("")
             choice = input("")
-            if choice != "1" and choice != "2" and choice != "3" and choice != "4":
+            if choice != "1" and choice != "2" and choice != "3" and choice != "4" and choice != "5":
                 raise ValueError(Fore.RED + 
                     "Enter 1 for Balance, 2 for deposits, 3 for withdrawals, 4 to logout\n" +
                     f"you entered: {choice}"
@@ -198,11 +200,13 @@ def mainMenu():
             elif choice == "3":
                 withdrawal()
             elif choice == "4":
+                mortgageCalc()
+            elif choice == "5":
                 print("")
                 print(Fore.YELLOW + "Thank You For Banking With Us")
                 print(Fore.YELLOW + "Have A Nice Day")
                 print("")
-                exit()
+                welcome()
             else:
                 return choice
         except ValueError as e:
@@ -347,12 +351,68 @@ def withdrawal():
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
+def mortgageCalc():
+
+    while True:
+        try:
+            choice = input("How much is your annual salary? ")
+            choice = choice.replace(',','')
+            choice = float(choice)
+            outgoing = input("What is your monthly contractual outgoings? ")
+            outgoing = outgoing.replace(',','')
+            outgoing = float(outgoing)
+            if choice != float(choice) and outgoing != float(outgoing):
+                raise ValueError(Fore.RED +
+                    "Please enter a valid amount" +
+                    f"you entered: {choice}"
+                )
+            else:
+                totalOut = outgoing * 12
+                annual = choice * 12
+                total = annual - totalOut
+                total = total * 4.75
+                print(f"The indicitive amount you could borrow is £{total}\n")
+                break
+        except ValueError as e:
+                print(Fore.RED + f"Invalid data: {e}, please try again.\n")
+
+
+    while True:
+        try:
+            choiceSecond = input("If you would like to complete an other transaction please 1 for main menu " +
+                           "If you would like to log out its 2:\n")
+            if choiceSecond != "1" and choiceSecond != "2":
+                raise ValueError(Fore.RED +
+                    "Enter 1 for new customer or 2 for selection" +
+                    f"you entered: {choiceSecond}"
+                )
+            elif choiceSecond == "1":
+                mainMenu()
+            else:
+                print("")
+                print(Fore.YELLOW + "Thank You For Banking With Us")
+                print(Fore.YELLOW + "Have A Nice Day")
+                print("")
+                welcome()
+        except ValueError as e:
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
+
 
 def welcome():
     """
     This function is the first option the user is given 
     to select if they are a new user or existing user
     """
+    print("")
+    print(Fore.GREEN +"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+    print("")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "               WELCOME             ")
+    print("")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "                 TO                ")
+    print("")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "              RETRO BANK           ")
+    print("")
+    print(Fore.GREEN +"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
     while True:
         try:
             print("")
@@ -377,19 +437,12 @@ def chosen(choice):
     welcome function. This will then direct the user to
     the appropriate new or existing user function
     """
+    
     if choice == "1":
         registerEmail()
     elif choice == "2":
         login()
 
-print("")
-print(Fore.GREEN +"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
-print("")
-print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "               WELCOME             ")
-print("")
-print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "                 TO                ")
-print("")
-print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "              RETRO BANK           ")
-print("")
-print(Fore.GREEN +"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+
 welcome()
+
