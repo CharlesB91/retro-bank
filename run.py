@@ -1,8 +1,7 @@
-   
 import gspread
 from google.oauth2.service_account import Credentials
 from email_validator import validate_email, EmailNotValidError
-import colorama 
+import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
@@ -16,7 +15,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('retro-bank')
-global gsheet 
+global gsheet
 gsheet = SHEET
 
 
@@ -30,7 +29,8 @@ def emailcheck(emailinput):
         emailinput = valid.email
         return emailinput
     except EmailNotValidError as e:
-        print(Fore.RED + "The email you provided is not valid please try again\n")
+        print(Fore.RED + "The email you provided is not valid" +
+              "please try again\n")
 
 
 def registerEmail():
@@ -39,7 +39,8 @@ def registerEmail():
     while loop will continue until a valid email is input
     """
 
-    print(Fore.GREEN + "Please complete the following fields to sign up for an account:\n")
+    print(Fore.GREEN + "Please complete the following fields to" +
+          "sign up for an account:\n")
 
     while True:
         try:
@@ -48,10 +49,10 @@ def registerEmail():
             email = email.lower()
             einput = emailcheck(email)
             if einput != email:
-                raise ValueError(Fore.RED + 
-                    "Please enter a valid email" +
-                    f" you entered: {email}"
-                )
+                raise ValueError(Fore.RED +
+                                 "Please enter a valid email" +
+                                 f" you entered: {email}"
+                                 )
             else:
                 regDetails()
                 return email
@@ -76,9 +77,8 @@ def regDetails():
         if nameNoSpace.isalpha():
             break
         else:
-            print(Fore.RED + f"Name must not contain numbers. You entered {nameNoSpace}")
-            
-    
+            print(Fore.RED + "Name must not contain numbers." +
+                  f"You entered {nameNoSpace}")
 
     while True:
         password = input("Please enter your password: ")
@@ -89,7 +89,8 @@ def regDetails():
         elif password == "":
             print(Fore.RED + "Password Required")
         else:
-            worksheet = gsheet.add_worksheet(title=email, rows="100", cols="20")
+            worksheet = gsheet.add_worksheet(title=email,
+                                             rows="100", cols="20")
             new_cust.append(email)
             new_cust.append(name)
             new_cust.append(password)
@@ -97,7 +98,7 @@ def regDetails():
             worksheet.append_row(new_cust)
             print("")
             print(Fore.GREEN + "WELCOME TO RETRO BANK" +
-            " As a new customer you will receive £500 joining bonus")
+                  " As a new customer you will receive £500 joining bonus")
             print(Fore.GREEN + "Please now log in:")
             print("")
             login()
@@ -106,13 +107,12 @@ def regDetails():
 
 def login():
     """
-    This function checks the email address is valid in the 
+    This function checks the email address is valid in the
     google sheet when customer attepmts to log in
     """
 
     global ename
     global epass
-   
 
     while True:
         try:
@@ -167,7 +167,7 @@ def verify():
 
 def mainMenu():
     """
-    Once the customer is successfully logged in, 
+    Once the customer is successfully logged in,
     they will be presented with options:
     1. View Balance
     2. Deposits
@@ -177,22 +177,25 @@ def mainMenu():
     while True:
         try:
             print("")
-            print(Fore.GREEN + f"Welcome {username[0]} To Your Retro Account Dashboard")
+            print(Fore.GREEN + f"Welcome {username[0]}" +
+                  "To Your Retro Account Dashboard")
             print("")
             print("Please Select from the following menu:")
             print("")
             print(Fore.BLACK + Back.GREEN + "1. Account Balance ")
-            print(Fore.BLACK + Back.YELLOW +"2. Deposit Money ")
-            print(Fore.BLACK + Back.BLUE +"3. Withdrawal ")
-            print(Fore.BLACK + Back.GREEN +"4. Mortgage - How Much Can I Borrow ")
-            print(Fore.BLACK + Back.RED +"5. Logout ")
+            print(Fore.BLACK + Back.YELLOW + "2. Deposit Money ")
+            print(Fore.BLACK + Back.BLUE + "3. Withdrawal ")
+            print(Fore.BLACK + Back.GREEN + "4. How Much Can I Borrow ")
+            print(Fore.BLACK + Back.RED + "5. Logout ")
             print("")
             choice = input("")
-            if choice != "1" and choice != "2" and choice != "3" and choice != "4" and choice != "5":
-                raise ValueError(Fore.RED + 
-                    "Enter 1 for Balance, 2 for deposits, 3 for withdrawals, 4 to logout\n" +
-                    f"you entered: {choice}"
-                )
+            if (choice != "1" and choice != "2" and choice != "3"
+                    and choice != "4" and choice != "5"):
+                raise ValueError(Fore.RED +
+                                 "Enter 1 for Balance, 2 for deposits, 3 for" +
+                                 "withdrawals, 4 to logout\n" +
+                                 f"you entered: {choice}"
+                                 )
             elif choice == "1":
                 balance()
             elif choice == "2":
@@ -222,17 +225,19 @@ def balance():
     balance = user.col_values(4)
     value = balance[0]
     print(Fore.GREEN + f"The balance of your account is £{value}")
-    
+
     while True:
         try:
-            
-            choice = input("If you would like to complete an other transactions please 1 for main menu " +
+
+            choice = input("If you would like to complete an other" +
+                           "transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
-                    "Enter 1 for new customer or 2 for selection" +
-                    f"you entered: {choice}"
-                )
+                                 "Enter 1 for new customer or 2 for" +
+                                 "selection" +
+                                 f"you entered: {choice}"
+                                 )
             elif choice == "1":
                 mainMenu()
             else:
@@ -255,36 +260,37 @@ def deposit():
     balance = user.col_values(4)
     value = balance[0]
     value = float(value)
-    
 
     while True:
         try:
             choice = input("How much would you like to deposit ? ")
-            choice = choice.replace(',','')
+            choice = choice.replace(',', '')
             choice = float(choice)
             if choice != float(choice):
                 raise ValueError(Fore.RED +
-                    "Please enter a valid amount" +
-                    f"you entered: {choice}"
-                )
+                                 "Please enter a valid amount" +
+                                 f"you entered: {choice}"
+                                 )
             else:
                 new = value + choice
                 newBalance = user.update("D1", new)
-                print(Fore.GREEN + f"The balance of your account is now £{new}")
+                print(Fore.GREEN + "The balance of your account" +
+                      f"is now £{new}")
                 break
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
-
     while True:
         try:
-            choiceSecond = input("If you would like to complete an other transaction please 1 for main menu " +
-                           "If you would like to log out its 2:\n")
+            choiceSecond = input("If you would like to complete an other" +
+                                 "transaction please 1 for main menu " +
+                                 "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
                 raise ValueError(Fore.RED +
-                    "Enter 1 for new customer or 2 for selection" +
-                    f"you entered: {choiceSecond}"
-                )
+                                 "Enter 1 for new customer or 2 for" +
+                                 "selection" +
+                                 f"you entered: {choiceSecond}"
+                                 )
             elif choiceSecond == "1":
                 mainMenu()
             else:
@@ -306,40 +312,43 @@ def withdrawal():
     balance = user.col_values(4)
     value = balance[0]
     value = float(value)
-    
 
     while True:
         try:
             choice = input("How much would you like to withdraw ? ")
-            choice = choice.replace(',','')
+            choice = choice.replace(',', '')
             choice = float(choice)
             if choice != float(choice):
                 raise ValueError(Fore.RED +
-                    "Please enter a valid amount" +
-                    f"you entered: {choice}"
-                )
+                                 "Please enter a valid amount" +
+                                 f"you entered: {choice}"
+                                 )
             else:
                 if value >= choice:
                     new = value - choice
                     newBalance = user.update("D1", new)
-                    print(Fore.GREEN + f"The balance of your account is now £{new}")
+                    print(Fore.GREEN + "The balance of your account" +
+                          f"is now £{new}")
                     break
                 else:
                     print(Fore.RED + "You have insufficient funds")
-                    print(Fore.GREEN + f"The Balance of your account is £{value} \n")
+                    print(Fore.GREEN + "The Balance of your account" +
+                          f"is £{value} \n")
                     break
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
     while True:
         try:
-            choiceSecond = input("If you would like to complete an other transaction please 1 for main menu " +
-                           "If you would like to log out its 2:\n")
+            choiceSecond = input("If you would like to complete an other" +
+                                 "transaction please 1 for main menu " +
+                                 "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
                 raise ValueError(Fore.RED +
-                    "Enter 1 for new customer or 2 for selection" +
-                    f"you entered: {choiceSecond}"
-                )
+                                 "Enter 1 for new customer or 2 for" +
+                                 "selection" +
+                                 f"you entered: {choiceSecond}"
+                                 )
             elif choiceSecond == "1":
                 mainMenu()
             else:
@@ -351,21 +360,22 @@ def withdrawal():
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
+
 def mortgageCalc():
 
     while True:
         try:
             choice = input("How much is your annual salary? ")
-            choice = choice.replace(',','')
+            choice = choice.replace(',', '')
             choice = float(choice)
             outgoing = input("What is your monthly contractual outgoings? ")
-            outgoing = outgoing.replace(',','')
+            outgoing = outgoing.replace(',', '')
             outgoing = float(outgoing)
             if choice != float(choice) and outgoing != float(outgoing):
                 raise ValueError(Fore.RED +
-                    "Please enter a valid amount" +
-                    f"you entered: {choice}"
-                )
+                                 "Please enter a valid amount" +
+                                 f"you entered: {choice}"
+                                 )
             else:
                 totalOut = outgoing * 12
                 total = choice - totalOut
@@ -375,16 +385,17 @@ def mortgageCalc():
         except ValueError as e:
                 print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
-
     while True:
         try:
-            choiceSecond = input("If you would like to complete an other transaction please 1 for main menu " +
-                           "If you would like to log out its 2:\n")
+            choiceSecond = input("If you would like to complete an other" +
+                                 "transaction please 1 for main menu " +
+                                 "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
                 raise ValueError(Fore.RED +
-                    "Enter 1 for new customer or 2 for selection" +
-                    f"you entered: {choiceSecond}"
-                )
+                                 "Enter 1 for new customer or 2 for " +
+                                 "selection" +
+                                 f"you entered: {choiceSecond}"
+                                 )
             elif choiceSecond == "1":
                 mainMenu()
             else:
@@ -399,31 +410,34 @@ def mortgageCalc():
 
 def welcome():
     """
-    This function is the first option the user is given 
+    This function is the first option the user is given
     to select if they are a new user or existing user
     """
     print("")
-    print(Fore.GREEN +"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+    print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
     print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "               WELCOME             ")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "     WELCOME       ")
     print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "                 TO                ")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "       TO          ")
     print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "              RETRO BANK           ")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT + "    RETRO BANK     ")
     print("")
-    print(Fore.GREEN +"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+    print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
     while True:
         try:
             print("")
-            print(Fore.GREEN + Style.BRIGHT + "If you are a new customer please enter 1:")
-            print(Fore.GREEN + Style.BRIGHT + "If you are already are an existing customer please enter 2:")
+            print(Fore.GREEN + Style.BRIGHT + "If you are a new customer" +
+                  "please enter 1:")
+            print(Fore.GREEN + Style.BRIGHT + "If you are already are an" + "
+                  "existing customer please enter 2:")
             print("")
             choice = input("")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
-                    "Enter 1 for new customer or 2 for existing customer," +
-                    f"you entered: {choice}"
-                )
+                                 "Enter 1 for new customer or 2 for" +
+                                 "existing customer," +
+                                 f"you entered: {choice}"
+                                 )
             else:
                 return chosen(choice)
         except ValueError as e:
@@ -436,7 +450,7 @@ def chosen(choice):
     welcome function. This will then direct the user to
     the appropriate new or existing user function
     """
-    
+
     if choice == "1":
         registerEmail()
     elif choice == "2":
@@ -444,4 +458,3 @@ def chosen(choice):
 
 
 welcome()
-
