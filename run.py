@@ -30,7 +30,7 @@ def emailcheck(emailinput):
         return emailinput
     except EmailNotValidError as e:
         print(Fore.RED + "The email you provided is not valid" +
-              f"please try again\n. You entered {e}")
+              "please try again\n")
 
 
 def registerEmail():
@@ -66,6 +66,7 @@ def regDetails():
     then adds the customer data google sheet long with new balance
     """
 
+    sheet = SHEET.worksheet("customer-data")
     new_cust = []
     bonus = 500
     welcome = float(bonus)
@@ -118,6 +119,7 @@ def login():
             ename = input("Please enter your email address: ")
             ename = ename.lower()
             ename = str(ename)
+            email_ver = gsheet.worksheet(ename)
         except:
             print(Fore.RED + "Invalid Email ! \nPlease try again")
             login()
