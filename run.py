@@ -240,7 +240,7 @@ def balance():
                 print(Fore.YELLOW + "Thank You For Banking With Us")
                 print(Fore.YELLOW + "Have A Nice Day")
                 print("")
-                exit()
+                welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
@@ -292,7 +292,7 @@ def deposit():
                 print(Fore.YELLOW + "Thank You For Banking With Us")
                 print(Fore.YELLOW + "Have A Nice Day")
                 print("")
-                exit()
+                welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
@@ -347,7 +347,7 @@ def withdrawal():
                 print(Fore.YELLOW + "Thank You For Banking With Us")
                 print(Fore.YELLOW + "Have A Nice Day")
                 print("")
-                exit()
+                welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
