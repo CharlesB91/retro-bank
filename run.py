@@ -365,7 +365,7 @@ def mortgageCalc():
     """
     This fucntion gives the user
     an idea of how much they could
-    borrow if they were looking to 
+    borrow if they were looking to
     take a mortgage based on their
     income & outgoings
     """
@@ -388,7 +388,8 @@ def mortgageCalc():
                 total = choice - totalOut
                 total = total * 4.75
                 print("")
-                print(Fore.GREEN + f"The indicitive amount you could borrow is £{total}\n")
+                print(Fore.GREEN + f"The indicitive amount you could" +
+                      f"borrow is £{total}\n")
                 break
         except ValueError as e:
                 print(Fore.RED + f"Invalid data: {e}, please try again.\n")
