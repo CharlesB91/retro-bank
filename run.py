@@ -89,20 +89,26 @@ def regDetails():
         elif password == "":
             print(Fore.RED + "Password Required")
         else:
-            worksheet = gsheet.add_worksheet(title=email,
-                                             rows="100", cols="20")
-            new_cust.append(email)
-            new_cust.append(name)
-            new_cust.append(password)
-            new_cust.append(welcome)
-            worksheet.append_row(new_cust)
-            print("")
-            print(Fore.GREEN + "WELCOME TO RETRO BANK" +
-                  " As a new customer you will receive £500 joining bonus")
-            print(Fore.GREEN + "Please now log in:")
-            print("")
-            login()
-            break
+            try:
+                worksheet = gsheet.add_worksheet(title=email,rows="100", cols="20")
+                new_cust.append(email)
+                new_cust.append(name)
+                new_cust.append(password)
+                new_cust.append(welcome)
+                worksheet.append_row(new_cust)
+                print("")
+                print(Fore.GREEN + "WELCOME TO RETRO BANK" +
+                        " As a new customer you will receive £500 joining bonus")
+                print(Fore.GREEN + "Please now log in:")
+                print("")
+                login()
+            except:
+                print(Fore.RED + "Email Already Registered !. Please try again")
+                registerEmail()
+            else:
+                login()
+                break
+
 
 
 def login():
