@@ -32,19 +32,6 @@ def emailcheck(emailinput):
         print(Fore.RED + "The email you provided is not valid" +
               "please try again\n")
 
-# def alreadyReg(emailinput):
-    
-#     while True:
-#         try:
-#             email_ver = gsheet.worksheet(emailinput)
-#         except:
-#             print(Fore.RED + "Email Already Registered! \nPlease try again")
-#             registerEmail()
-#         else:
-#             return emailinput
-
-
-
 
 def registerEmail():
     """
