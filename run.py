@@ -389,7 +389,7 @@ def mortgageCalc():
                 total = total * 4.75
                 print("")
                 print(Fore.GREEN + f"The indicitive amount you could" +
-                      f"borrow is £{total}\n")
+                      f" borrow is £{total}\n")
                 break
         except ValueError as e:
                 print(Fore.RED + f"Invalid data: {e}, please try again.\n")
