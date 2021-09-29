@@ -45,11 +45,11 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 
 - This area where what the customer will see once they are successfully logged in.
 - The menu has 5 options
-1 View Balance
-2 Deposit
-3 Withdraw
-4 How much can I borrow
-5 Log out
+- 1 View Balance
+- 2 Deposit
+- 3 Withdraw
+- 4 How much can I borrow
+- 5 Log out
 
 - The user needs to enter the number of which transaction they would like to complete and they will be routed accordingly. 
 
