@@ -45,23 +45,45 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 
 - This area where what the customer will see once they are successfully logged in.
 - The menu has 5 options
-- 1. View Balance
-- 2. Deposit
-- 3. Withdraw
-- 4. How much can I borrow
-- 5. Log out
+1 View Balance
+2 Deposit
+3 Withdraw
+4 How much can I borrow
+5 Log out
 
 - The user needs to enter the number of which transaction they would like to complete and they will be routed accordingly. 
 
 ### View Balance
 
+- This area displays the customer live balance which is fetched from the google sheet. 
+- The customer will be presented with a message if they would like to go back to the main menu or log out. 
+
 ### Deposit
+
+- This area is where the user can enter in how much they would like to deposit. 
+- Once this is completed the user will see the new balance. This new balance is updated on the google sheet. 
+- The customer will be presented with a message if they would like to go back to the main menu or log out. 
 
 ### Withdraw
 
+- This area allows the user to withdraw money at their request.
+- The user will enter in how much they would like to withdraw. The application will then check with the google sheet that the customer has sufficient funds.
+- If the customer has sufficient funds they will be presented with their new balance and again this new balance saved back to the google sheet. 
+- If the customer does not have sufficient funds they will be presented with an insufficient funds message with their live balance from the google sheet. 
+- The customer will be presented with a message if they would like to go back to the main menu or log out. 
+
 ### Mortgage Calculator - How much can i borrow
 
+- This area features a simple mortgage calculation which is inform the user how much they can borrow.
+- The user needs to enter their annual salary along with their monthly contractual commitments.
+- The user will then be information how much in principle they can borrow. 
+- If the amount us under 10K they will be displayed a message that they do not qualify for a mortgage.
+- The customer will be presented with a message if they would like to go back to the main menu or log out. 
+
 ### Log out
+
+- This area allows the user to log out with a corresponding message. 
+- The user will then be routed back to the welcome screen.
 
 
 
