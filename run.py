@@ -30,7 +30,7 @@ def emailcheck(emailinput):
         return emailinput
     except EmailNotValidError as e:
         print(Fore.RED + "The email you provided is not valid" +
-              "please try again\n")
+              f"please try again. You entered {e}")
 
 
 def registerEmail():
@@ -66,7 +66,6 @@ def regDetails():
     then adds the customer data google sheet long with new balance
     """
 
-    sheet = SHEET.worksheet("customer-data")
     new_cust = []
     bonus = 500
     welcome = float(bonus)
@@ -103,7 +102,7 @@ def regDetails():
                 print(Fore.GREEN + "Please now log in:")
                 print("")
                 login()
-            except:
+            except Exception:
                 print(Fore.RED + "Email Already Registered !." +
                       "Please try again")
                 registerEmail()
@@ -126,8 +125,8 @@ def login():
             ename = input("Please enter your email address: ")
             ename = ename.lower()
             ename = str(ename)
-            email_ver = gsheet.worksheet(ename)
-        except:
+            gsheet.worksheet(ename)
+        except Exception:
             print(Fore.RED + "Invalid Email ! \nPlease try again")
             login()
         else:
@@ -280,7 +279,7 @@ def deposit():
                                  )
             else:
                 new = value + choice
-                newBalance = user.update("D1", new)
+                user.update("D1", new)
                 print(Fore.GREEN + "The balance of your account" +
                       f"is now £{new}")
                 break
@@ -333,7 +332,7 @@ def withdrawal():
             else:
                 if value >= choice:
                     new = value - choice
-                    newBalance = user.update("D1", new)
+                    user.update("D1", new)
                     print(Fore.GREEN + "The balance of your account" +
                           f"is now £{new}")
                     break
@@ -395,11 +394,11 @@ def mortgageCalc():
                 total = choice - totalOut
                 total = total * 4.75
                 print("")
-                print(Fore.GREEN + f"The indicitive amount you could" +
+                print(Fore.GREEN + "The indicitive amount you could" +
                       f" borrow is £{total}\n")
                 break
         except ValueError as e:
-                print(Fore.RED + f"Invalid data: {e}, please try again.\n")
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
     while True:
         try:

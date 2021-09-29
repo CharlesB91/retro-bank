@@ -94,3 +94,22 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 - Additioanl features include coloured & highlighted text in the CLI which is to make certain information stand out for the user.
 - The moudle used to do this is colorama.
 
+## Testing
+
+- I have manually tested by doing the following:
+    - Ran my python code through pep8linter via gid pod with no significant issues.
+    - Have input incorrect values to input areas to ensure error functions are working correctly. 
+    - Testing code via terminal & heroku terminal
+
+## Bugs
+
+### Resolved Bugs
+
+- Initally when a user was trying to sign in could not access appropriate cell data as there would be multiple customers eventually registering so could not implements a specific cell to search as customer data was on the one worksheet. After chating with mentor she advised to look at my data structure with google sheets. After this i decided to use the method of when a new user is registered google sheets would create a new worksheet for this user. This was i could access the customer email address,name,password, balance data as the cells would not be changing only the specific worksheet for who ever was trying to log in. The gspread documentation helped me figure this out which was very helpful. (https://docs.gspread.org/en/latest/user-guide.html).
+- As part of testing realised that all email address should be converted to lower case to ensure when a customer attempts to log back in this be always convered into the correct format from what google sheets has. Using the .lower() method has resolved this issue. 
+- Again whilst testing because we are dealing with money values the user could imput commas and decimal points which i had not accounted for. After some research implement replace(',', '') method to remove the commas and the method float() if the users a decimal point. The application can now handle values with commas and calculate using.decmials. Stackoverflow provided the solution to remove the commas (https://stackoverflow.com/questions/16233593/how-to-strip-comma-in-python-string).
+- When a customer registers their email i had not implemented anything to check that the email had already been registered. Additionally did not account for when a user logs in with an unkown email. After some thought realised all i had to do was catch this in an try block to stop the application from crashing.
+
+### Unresolved Bugs
+
+- No current unresolved bugs i have come accross so far after testing. 
