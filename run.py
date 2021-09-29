@@ -81,15 +81,6 @@ def regDetails():
                   f" of special characters. You entered {nameNoSpace}")
 
     while True:
-        try:
-            worksheet = gsheet.add_worksheet(title=email, rows="100", cols="20")
-        except:
-            print(Fore.RED + "Email Already Registered! \nPlease try again")
-            registerEmail()
-        else:
-            break
-
-    while True:
         password = input("Please enter your password: ")
         name = name.lower()
         name = name.title()
