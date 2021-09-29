@@ -16,15 +16,15 @@ The aim of this application to provide a simple banking application to any new a
 
 - To provide some basic banking facilities to the user whilst maintaining the data integrity. 
 
-## Data Model - Function Digagram
+## Data Model - Function Diagram
 
-Originally i sketched how i wanted the flow of my application to follow to get an idea of what functionality was required. I then moved this idea to diagram flowchart maker. 
+Originally I sketched how I wanted the flow of my application to follow to get an idea of what functionality was required. I then moved this idea to diagram flowchart maker. 
 
 ![Flow-Chart](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/flow_retro_bank-Page-2.drawio.png)
 
-- For my data model i deciced to use the google sheets API to store the customer data and balance info. 
+- For my data model I decided to use the google sheets API to store the customer data and balance info. 
 - I created functions to register the customers details and to verify the customers data when logging in. 
-- I then created fucntions to display the main menu which would then route the customer to the various transctions functions - balance, disposit, withdrawl, how much can i borrow. Then eventually the customer is able to log out of the application and is returned to the welcome screen. 
+- I then created functions to display the main menu which would then route the customer to the various transactions functions - balance, deposit, withdrawal, how much can i borrow. Then eventually the customer is able to log out of the application and is returned to the welcome screen. 
 
 ## Features
 
@@ -89,10 +89,10 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 - This area allows the user to log out with a corresponding message. 
 - The user will then be routed back to the welcome screen.
 
-### Additiona Features
+### Additional Features
 
-- Additioanl features include coloured & highlighted text in the CLI which is to make certain information stand out for the user.
-- The moudle used to do this is colorama.
+- Additional features include coloured & highlighted text in the CLI which is to make certain information stand out for the user.
+- The module used to do this is colorama.
 
 ## Testing
 
@@ -109,16 +109,16 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 
 ### Resolved Bugs
 
-- Initally when a user was trying to sign in could not access appropriate cell data as there would be multiple customers eventually registering so could not implements a specific cell to search as customer data was on the one worksheet. After chating with mentor she advised to look at my data structure with google sheets. After this i decided to use the method of when a new user is registered google sheets would create a new worksheet for this user. This was i could access the customer email address,name,password, balance data as the cells would not be changing only the specific worksheet for who ever was trying to log in. The gspread documentation helped me figure this out which was very helpful. (https://docs.gspread.org/en/latest/user-guide.html).
-- As part of testing realised that all email address should be converted to lower case to ensure when a customer attempts to log back in this be always convered into the correct format from what google sheets has. Using the .lower() method has resolved this issue. 
-- Again whilst testing because we are dealing with money values the user could imput commas and decimal points which i had not accounted for. After some research implement replace(',', '') method to remove the commas and the method float() if the users a decimal point. The application can now handle values with commas and calculate using.decmials. Stackoverflow provided the solution to remove the commas (https://stackoverflow.com/questions/16233593/how-to-strip-comma-in-python-string).
-- When a customer registers their email i had not implemented anything to check that the email had already been registered. Additionally did not account for when a user logs in with an unkown email. After some thought realised all i had to do was catch this in an try block to stop the application from crashing.
+- Initially when a user was trying to sign in could not access appropriate cell data as there would be multiple customers eventually registering so could not implements a specific cell to search as customer data was on the one worksheet. After chatting with mentor she advised to look at my data structure with google sheets. After this i decided to use the method of when a new user is registered google sheets would create a new worksheet for this user. This was i could access the customer email address, name, password, balance data as the cells would not be changing only the specific worksheet for who ever was trying to log in. The gspread documentation helped me figure this out which was very helpful. (https://docs.gspread.org/en/latest/user-guide.html).
+- As part of testing realised that all email address should be converted to lower case to ensure when a customer attempts to log back in this be always converted into the correct format from what google sheets has. Using the .lower() method has resolved this issue. 
+- Again whilst testing because we are dealing with money values the user could input commas and decimal points which i had not accounted for. After some research implement replace(',', '') method to remove the commas and the method float() if the users a decimal point. The application can now handle values with commas and calculate using decimals. Stack overflow provided the solution to remove the commas (https://stackoverflow.com/questions/16233593/how-to-strip-comma-in-python-string).
+- When a customer registers their email i had not implemented anything to check that the email had already been registered. Additionally did not account for when a user logs in with an unknown email. After some thought realised all i had to do was catch this in an try block to stop the application from crashing.
 
 ### Unresolved Bugs
 
-- No current unresolved bugs i have come accross so far after testing. 
+- No current unresolved bugs I have come across so far after testing. 
 
-## Delpoyment
+## Deployment
 
 - This project was deployed using code institute's mock Terminal for Heroku.
 - Deployment Steps:
@@ -130,7 +130,7 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 
 ## Credits
 
-- The original inspritation was taken from youtube tutorial. Althought the app features in this tutorial is deployled completely differently and also how the data is stored. This allowed me to understand the logic and functionality. (https://www.youtube.com/watch?v=71X58zIzrgA&list=RDCMUCfgSHpMOBXqmtqufxgVp68g&index=3)
-- The gspread documentation provided amazing guidence for minitpulating data in the google sheet. (https://docs.gspread.org/en/latest/user-guide.html)
-- After some googleing came accross a specific email validator for when a user registers for the first time (https://pypi.org/project/email-validator/)
-- The coloured text and highlighted text effect was taken from youtube tutorial (https://www.youtube.com/watch?v=u51Zjlnui4Y)
+- The original inspiration was taken from YouTube tutorial. Although the app features in this tutorial is deployed completely differently and also how the data is stored. This allowed me to understand the logic and functionality. (https://www.youtube.com/watch?v=71X58zIzrgA&list=RDCMUCfgSHpMOBXqmtqufxgVp68g&index=3)
+- The gspread documentation provided amazing guidance for manipulating data in the google sheet. (https://docs.gspread.org/en/latest/user-guide.html)
+- After some googling came across a specific email validator for when a user registers for the first time (https://pypi.org/project/email-validator/)
+- The coloured text and highlighted text effect was taken from YouTube tutorial (https://www.youtube.com/watch?v=u51Zjlnui4Y)
