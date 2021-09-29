@@ -16,11 +16,15 @@ The aim of this application to provide a simple banking application to any new a
 
 - To provide some basic banking facilities to the user whilst maintaining the data integrity. 
 
-## Function Diagram
+## Data Model - Function Digagram
 
 Originally i sketched how i wanted the flow of my application to follow to get an idea of what functionality was required. I then moved this idea to diagram flowchart maker. 
 
 ![Flow-Chart](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/flow_retro_bank-Page-2.drawio.png)
+
+- For my data model i deciced to use the google sheets API to store the customer data and balance info. 
+- I created functions to register the customers details and to verify the customers data when logging in. 
+- I then created fucntions to display the main menu which would then route the customer to the various transctions functions - balance, disposit, withdrawl, how much can i borrow. Then eventually the customer is able to log out of the application and is returned to the welcome screen. 
 
 ## Features
 
@@ -85,5 +89,8 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 - This area allows the user to log out with a corresponding message. 
 - The user will then be routed back to the welcome screen.
 
+### Additiona Features
 
+- Additioanl features include coloured & highlighted text in the CLI which is to make certain information stand out for the user.
+- The moudle used to do this is colorama.
 

@@ -90,7 +90,8 @@ def regDetails():
             print(Fore.RED + "Password Required")
         else:
             try:
-                worksheet = gsheet.add_worksheet(title=email,rows="100", cols="20")
+                worksheet = gsheet.add_worksheet(title=email,
+                                                 rows="100", cols="20")
                 new_cust.append(email)
                 new_cust.append(name)
                 new_cust.append(password)
@@ -98,17 +99,17 @@ def regDetails():
                 worksheet.append_row(new_cust)
                 print("")
                 print(Fore.GREEN + "WELCOME TO RETRO BANK" +
-                        " As a new customer you will receive £500 joining bonus")
+                      " As a new customer you will receive £500 joining bonus")
                 print(Fore.GREEN + "Please now log in:")
                 print("")
                 login()
             except:
-                print(Fore.RED + "Email Already Registered !. Please try again")
+                print(Fore.RED + "Email Already Registered !." +
+                      "Please try again")
                 registerEmail()
             else:
                 login()
                 break
-
 
 
 def login():
@@ -195,8 +196,8 @@ def mainMenu():
             print(Fore.BLACK + Back.RED + "5. Logout ")
             print("")
             choice = input("")
-            if (choice != "1" and choice != "2" and choice != "3"
-                    and choice != "4" and choice != "5"):
+            if (choice != "1" and choice != "2" and choice != "3" and
+                    choice != "4" and choice != "5"):
                 raise ValueError(Fore.RED +
                                  "Enter 1 for Balance, 2 for deposits, 3 for" +
                                  "withdrawals, 4 to logout\n" +
