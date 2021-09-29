@@ -1,31 +1,24 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Retro Bank
 
-Welcome CharlesB91,
+This retro banking application allows new & existing users to sign up for a retro account where they will receive a £500 joining bonus. This application has features such as check balance, deposit money, withdraw money and a mortgage calculate which will indicate how much a user can borrow based on their income and outgoings. This application has been set up with a google sheet API therefore all customer data & balance info is stored on a google sheet waiting to be accessed by the authenticated user.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Aim
 
-## Reminders
+The aim of this application to provide a simple banking application to any new and exisiting user to complete basic banking transactions. This ultimelty demonstartes the use of remote database using google sheets API. The data can be requested, read, updated and saved as per the users request. 
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+### Business Goals
 
-## Creating the Heroku app
+- To collect user data and store this on a remove data base (google sheets).
+- Allow a user to create a new retro account and allow exisiting users to log into their retro account. 
+- A user can complete some basic transactions ie view balance, deposit, withdraw and mortgage calculator.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### Client Goals
 
-1. `heroku/python`
-2. `heroku/nodejs`
+- To provide some basic banking facilities to the user whilst maintaiing the data integrity. 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Function Diagram
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+Originally i sketched how i wanted the flow of my application to follow to get an idea of what functionality was required. I then moved this idea to diagrma flowchart maker. 
 
-Connect your GitHub repository and deploy as normal.
+![Flow-Chart](https://github.com/CharlesB91/harry-potter-quiz/blob/master/assets/images/readme-img/wireframe-home.png)
 
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
