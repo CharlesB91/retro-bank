@@ -101,6 +101,10 @@ Originally i sketched how i wanted the flow of my application to follow to get a
     - Have input incorrect values to input areas to ensure error functions are working correctly. 
     - Testing code via terminal & heroku terminal
 
+### Validator Testing
+
+- Code has been passed through (http://pep8online.com/) with no significant issues after corrections
+
 ## Bugs
 
 ### Resolved Bugs
@@ -113,3 +117,20 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 ### Unresolved Bugs
 
 - No current unresolved bugs i have come accross so far after testing. 
+
+## Delpoyment
+
+- This project was deployed using code institute's mock Terminal for Heroku.
+- Deployment Steps:
+  - Fork or clone this repository.
+  - Create new Heroku app.
+  - Set a built back to Python and nodeJs (in this exact order).
+  - Link the Heroku app to the repository.
+  - Finally click on Deploy.
+
+## Credits
+
+- The original inspritation was taken from youtube tutorial. Althought the app features in this tutorial is deployled completely differently and also how the data is stored. This allowed me to understand the logic and functionality. (https://www.youtube.com/watch?v=71X58zIzrgA&list=RDCMUCfgSHpMOBXqmtqufxgVp68g&index=3)
+- The gspread documentation provided amazing guidence for minitpulating data in the google sheet. (https://docs.gspread.org/en/latest/user-guide.html)
+- After some googleing came accross a specific email validator for when a user registers for the first time (https://pypi.org/project/email-validator/)
+- The coloured text and highlighted text effect was taken from youtube tutorial (https://www.youtube.com/watch?v=u51Zjlnui4Y)
