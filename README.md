@@ -22,3 +22,46 @@ Originally i sketched how i wanted the flow of my application to follow to get a
 
 ![Flow-Chart](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/flow_retro_bank-Page-2.drawio.png)
 
+## Features
+
+### Welcome 
+
+- This area features a graphical message of retro bank.
+- This area is where the user can enter 1 to register as a new user or 2 for existing user log in.
+
+### New User Registration
+
+- This area is where the user can enter their email, address, name & password.
+- The email address entered will check the email has not been already registered.
+- Once successfully registered the customers details will be saved onto a new worksheet on a google sheet with their new balance of £500
+
+### Existing User Log In
+
+- This area is where the customer enters their email address & password.
+- The details entered is checked against the google sheets to ensure the authenticity of the user. 
+- Once successfully logged in the user will be presented with the main menu.
+
+### Main Menu
+
+- This area where what the customer will see once they are successfully logged in.
+- The menu has 5 options
+- 1. View Balance
+- 2. Deposit
+- 3. Withdraw
+- 4. How much can I borrow
+- 5. Log out
+
+- The user needs to enter the number of which transaction they would like to complete and they will be routed accordingly. 
+
+### View Balance
+
+### Deposit
+
+### Withdraw
+
+### Mortgage Calculator - How much can i borrow
+
+### Log out
+
+
+
