@@ -32,6 +32,19 @@ def emailcheck(emailinput):
         print(Fore.RED + "The email you provided is not valid" +
               "please try again\n")
 
+# def alreadyReg(emailinput):
+    
+#     while True:
+#         try:
+#             email_ver = gsheet.worksheet(emailinput)
+#         except:
+#             print(Fore.RED + "Email Already Registered! \nPlease try again")
+#             registerEmail()
+#         else:
+#             return emailinput
+
+
+
 
 def registerEmail():
     """
@@ -39,7 +52,7 @@ def registerEmail():
     while loop will continue until a valid email is input
     """
 
-    print(Fore.GREEN + "Please complete the following fields to" +
+    print(Fore.GREEN + "Please complete the following fields to " +
           "sign up for an account:\n")
 
     while True:
@@ -79,6 +92,15 @@ def regDetails():
         else:
             print(Fore.RED + "Name must not contain numbers." +
                   f" of special characters. You entered {nameNoSpace}")
+
+    while True:
+        try:
+            worksheet = gsheet.add_worksheet(title=email, rows="100", cols="20")
+        except:
+            print(Fore.RED + "Email Already Registered! \nPlease try again")
+            registerEmail()
+        else:
+            break
 
     while True:
         password = input("Please enter your password: ")
