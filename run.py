@@ -477,9 +477,9 @@ def welcome():
         try:
             print("")
             print(Fore.GREEN + Style.BRIGHT + "If you are a new customer" +
-                  "please enter 1:")
+                  " please enter 1:")
             print(Fore.GREEN + Style.BRIGHT + "If you are already are an" +
-                  "existing customer please enter 2:")
+                  " existing customer please enter 2:")
             choice = input("\n")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
