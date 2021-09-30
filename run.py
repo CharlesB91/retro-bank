@@ -4,6 +4,7 @@ from email_validator import validate_email, EmailNotValidError
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
+from math import ceil
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -76,8 +77,8 @@ def regDetails():
         if nameNoSpace.isalpha():
             break
         else:
-            print(Fore.RED + "Name must not contain numbers." +
-                  f" of special characters. You entered {nameNoSpace}")
+            print(Fore.RED + "Name must not contain numbers" +
+                  f" or special characters. You entered {nameNoSpace}")
 
     while True:
         password = input("Please enter your password: ")
@@ -97,7 +98,7 @@ def regDetails():
                 new_cust.append(welcome)
                 worksheet.append_row(new_cust)
                 print("")
-                print(Fore.GREEN + "WELCOME TO RETRO BANK" +
+                print(Fore.GREEN + "WELCOME TO RETRO BANK !" +
                       " As a new customer you will receive £500 joining bonus")
                 print(Fore.GREEN + "Please now log in:")
                 print("")
@@ -230,12 +231,13 @@ def balance():
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
+    print("")
     print(Fore.GREEN + f"The balance of your account is £{value}")
 
     while True:
         try:
-
-            choice = input("If you would like to complete an other" +
+            print("")
+            choice = input(Fore.YELLOW + "If you would like to complete an other" +
                            "transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
@@ -269,6 +271,7 @@ def deposit():
 
     while True:
         try:
+            print("")
             choice = input("How much would you like to deposit ? ")
             choice = choice.replace(',', '')
             choice = float(choice)
@@ -279,7 +282,9 @@ def deposit():
                                  )
             else:
                 new = value + choice
+                new = ceil(new * 100) / 100.0
                 user.update("D1", new)
+                print("")
                 print(Fore.GREEN + "The balance of your account" +
                       f"is now £{new}")
                 break
@@ -288,7 +293,8 @@ def deposit():
 
     while True:
         try:
-            choiceSecond = input("If you would like to complete an other" +
+            print("")
+            choiceSecond = input(Fore.YELLOW + "If you would like to complete an other" +
                                  "transaction please 1 for main menu " +
                                  "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
@@ -321,6 +327,7 @@ def withdrawal():
 
     while True:
         try:
+            print("")
             choice = input("How much would you like to withdraw ? ")
             choice = choice.replace(',', '')
             choice = float(choice)
@@ -332,11 +339,14 @@ def withdrawal():
             else:
                 if value >= choice:
                     new = value - choice
+                    new = ceil(new * 100) / 100.0
                     user.update("D1", new)
+                    print("")
                     print(Fore.GREEN + "The balance of your account" +
                           f"is now £{new}")
                     break
                 else:
+                    print("")
                     print(Fore.RED + "You have insufficient funds")
                     print(Fore.GREEN + "The Balance of your account" +
                           f"is £{value} \n")
@@ -346,7 +356,8 @@ def withdrawal():
 
     while True:
         try:
-            choiceSecond = input("If you would like to complete an other" +
+            print("")
+            choiceSecond = input(Fore.YELLOW + "If you would like to complete an other" +
                                  "transaction please 1 for main menu " +
                                  "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
@@ -434,6 +445,7 @@ def mortgageCalc():
 
     while True:
         try:
+            print("")
             choice = input("How much is your annual salary? ")
             choice = choice.replace(',', '')
             choice = float(choice)
@@ -444,7 +456,7 @@ def mortgageCalc():
                 break
             else:
                 outgoing = input("What is your monthly contractual" +
-                                 "outgoings? ")
+                                 " outgoings? ")
                 outgoing = outgoing.replace(',', '')
                 outgoing = float(outgoing)
                 if choice != float(choice) and outgoing != float(outgoing):
@@ -455,7 +467,8 @@ def mortgageCalc():
                 else:
                     totalOut = outgoing * 12
                     total = choice - totalOut
-                    total = total * 4.75
+                    total = round(total * 4.75)
+                    total = ceil(total * 100) / 100.0
                     if total <= 20000:
                         print("")
                         print(Fore.RED + "You are not eligible for a " +
@@ -471,7 +484,8 @@ def mortgageCalc():
 
     while True:
         try:
-            choiceSecond = input("If you would like to complete an other" +
+            print("")
+            choiceSecond = input(Fore.YELLOW + "If you would like to complete an other" +
                                  "transaction please 1 for main menu " +
                                  "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
