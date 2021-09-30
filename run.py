@@ -19,7 +19,6 @@ SHEET = GSPREAD_CLIENT.open('retro-bank')
 global gsheet
 gsheet = SHEET
 
-
 def emailcheck(emailinput):
     """
     Email validator function.
@@ -72,7 +71,7 @@ def regDetails():
     welcome = float(bonus)
 
     while True:
-        name = input("Please enter your full name: ")
+        name = input("Please enter your full name:\n ")
         nameNoSpace = name.replace(" ", "")
         if nameNoSpace.isalpha():
             break
@@ -123,7 +122,7 @@ def login():
 
     while True:
         try:
-            ename = input("Please enter your email address: ")
+            ename = input("Please enter your email address:\n ")
             ename = ename.lower()
             ename = str(ename)
             gsheet.worksheet(ename)
