@@ -439,29 +439,32 @@ def mortgageCalc():
             choice = float(choice)
             if choice <= 10000:
                 print("")
-                print(Fore.RED + "You are not eligible for a mortgage based on your salary\n")
+                print(Fore.RED + "You are not eligible for a mortgage based" +
+                      "on your salary\n")
                 break
             else:
-                outgoing = input("What is your monthly contractual outgoings? ")
+                outgoing = input("What is your monthly contractual" +
+                                 "outgoings? ")
                 outgoing = outgoing.replace(',', '')
                 outgoing = float(outgoing)
                 if choice != float(choice) and outgoing != float(outgoing):
                     raise ValueError(Fore.RED +
-                                    "Please enter a valid amount" +
-                                    f"you entered: {choice}"
-                                    )
+                                     "Please enter a valid amount" +
+                                     f"you entered: {choice}"
+                                     )
                 else:
                     totalOut = outgoing * 12
                     total = choice - totalOut
                     total = total * 4.75
                     if total <= 20000:
                         print("")
-                        print(Fore.RED + "You are not eligible for a mortgage based on your income & outgoings\n")
+                        print(Fore.RED + "You are not eligible for a " +
+                              "mortgage based on your income & outgoings\n")
                         break
                     else:
                         print("")
                         print(Fore.GREEN + "The indicitive amount you could" +
-                            f" borrow is £{total}\n")
+                              f" borrow is £{total}\n")
                         break
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
@@ -472,7 +475,7 @@ def mortgageCalc():
                                  "transaction please 1 for main menu " +
                                  "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
-                raise ValueError(Fore.RED + 
+                raise ValueError(Fore.RED +
                                  "Enter 1 for new customer or 2 for " +
                                  "selection" +
                                  f"you entered: {choiceSecond}"
