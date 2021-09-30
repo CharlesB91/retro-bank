@@ -81,7 +81,7 @@ def regDetails():
                   f" or special characters. You entered {nameNoSpace}")
 
     while True:
-        password = input("Please enter your password: ")
+        password = input("Please enter your password:\n ")
         name = name.lower()
         name = name.title()
         if name == "":
@@ -141,7 +141,7 @@ def verify():
     so the customer can log into the account dash board.
     """
 
-    epass = input("Please enter your password: ")
+    epass = input("Please enter your password:\n ")
 
     global email_ver
     global details
@@ -195,7 +195,7 @@ def mainMenu():
             print(Fore.BLACK + Back.GREEN + "4. How Much Can I Borrow ")
             print(Fore.BLACK + Back.RED + "5. Logout ")
             print("")
-            choice = input("")
+            choice = input("\n")
             if (choice != "1" and choice != "2" and choice != "3" and
                     choice != "4" and choice != "5"):
                 raise ValueError(Fore.RED +
@@ -240,7 +240,7 @@ def balance():
             choice = input(Fore.YELLOW + "If you would like to complete" +
                            "an other" +
                            "transactions please 1 for main menu " +
-                           "If you would like to log out its 2:\n")
+                           "If you would like to log out its 2:\n ")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
                                  "Enter 1 for new customer or 2 for" +
@@ -273,7 +273,7 @@ def deposit():
     while True:
         try:
             print("")
-            choice = input("How much would you like to deposit ? ")
+            choice = input("How much would you like to deposit ? \n ")
             choice = choice.replace(',', '')
             choice = float(choice)
             if choice != float(choice):
@@ -330,7 +330,7 @@ def withdrawal():
     while True:
         try:
             print("")
-            choice = input("How much would you like to withdraw ? ")
+            choice = input("How much would you like to withdraw ?\n ")
             choice = choice.replace(',', '')
             choice = float(choice)
             if choice != float(choice):
@@ -393,7 +393,7 @@ def mortgageCalc():
     while True:
         try:
             print("")
-            choice = input("How much is your annual salary? ")
+            choice = input("How much is your annual salary?\n ")
             choice = choice.replace(',', '')
             choice = float(choice)
             if choice <= 10000:
@@ -403,7 +403,7 @@ def mortgageCalc():
                 break
             else:
                 outgoing = input("What is your monthly contractual" +
-                                 " outgoings? ")
+                                 " outgoings?\n ")
                 outgoing = outgoing.replace(',', '')
                 outgoing = float(outgoing)
                 if choice != float(choice) and outgoing != float(outgoing):
@@ -481,7 +481,7 @@ def welcome():
             print(Fore.GREEN + Style.BRIGHT + "If you are already are an" +
                   "existing customer please enter 2:")
             print("")
-            choice = input("")
+            choice = input("\n")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
                                  "Enter 1 for new customer or 2 for" +
