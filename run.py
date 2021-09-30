@@ -19,6 +19,7 @@ SHEET = GSPREAD_CLIENT.open('retro-bank')
 global gsheet
 gsheet = SHEET
 
+
 def emailcheck(emailinput):
     """
     Email validator function.
