@@ -29,9 +29,9 @@ def emailcheck(emailinput):
         valid = validate_email(emailinput)
         emailinput = valid.email
         return emailinput
-    except EmailNotValidError as e:
-        print(Fore.RED + "The email you provided is not valid" +
-              f"please try again. You entered {e}")
+    except EmailNotValidError:
+        print(Fore.RED + "The email you provided is not valid " +
+              f"please try again.")
 
 
 def registerEmail():
@@ -399,7 +399,7 @@ def mortgageCalc():
             if choice <= 10000:
                 print("")
                 print(Fore.RED + "You are not eligible for a mortgage based" +
-                      "on your salary\n")
+                      " on your salary\n")
                 break
             else:
                 outgoing = input("What is your monthly contractual" +
