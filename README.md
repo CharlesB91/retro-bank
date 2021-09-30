@@ -33,17 +33,23 @@ Originally I sketched how I wanted the flow of my application to follow to get a
 - This area features a graphical message of retro bank.
 - This area is where the user can enter 1 to register as a new user or 2 for existing user log in.
 
+![Welcome](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/welcome.PNG)
+
 ### New User Registration
 
 - This area is where the user can enter their email address, full name & password.
 - The application will first check the email address entered is not already registered.
 - Once successfully registered the customers details will be saved onto a new worksheet on the google sheet with their new balance of £500
 
+![New-User](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/register.PNG)
+
 ### Existing User Log In
 
 - This area is where the user enters their email address & password.
 - The details entered is checked against the google sheets to ensure the authenticity of the user. 
 - Once successfully logged in the user will be presented with the main menu.
+
+![Login](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/login.PNG)
 
 ### Main Menu
 
@@ -57,16 +63,22 @@ Originally I sketched how I wanted the flow of my application to follow to get a
 
 - The user needs to enter the corresponding menu number of which transaction they would like to complete and they will be routed accordingly. 
 
+![Main-Menu](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/menu.PNG)
+
 ### View Balance
 
 - This area displays the customers live balance which is fetched from the google sheet. 
 - The customer will be presented with a message if they would like to revert to the main menu or log out. 
+
+![Balance](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/balance.PNG)
 
 ### Deposit
 
 - This area is where the user can enter in how much they would like to deposit. 
 - Once this is completed the user will see the new balance. This new balance is updated on the google sheet. 
 - The customer will be presented with a message if they would like to revert to the main menu or log out. 
+
+![Deposit](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/deposit.PNG)
 
 ### Withdraw
 
@@ -75,6 +87,9 @@ Originally I sketched how I wanted the flow of my application to follow to get a
 - If the customer has sufficient funds they will be presented with their new balance and again this new balance saved back to the google sheet. 
 - If the customer does not have sufficient funds they will be presented with an insufficient funds message with their live balance from the google sheet. 
 - The customer will be presented with a message if they would like to revert to the main menu or log out. 
+
+![Withdraw](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/withdraw.PNG)
+![Insufficent-Funds](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/insufficent.PNG)
 
 ### Mortgage Calculator - How much can i borrow
 
@@ -85,10 +100,14 @@ Originally I sketched how I wanted the flow of my application to follow to get a
 - Additionally if the customers annual salary is 10K or below they will be presented with a message that they do not qualify for a mortgage.
 - The customer will be presented with a message if they would like to revert to the main menu or log out. 
 
+![Insufficent-Funds](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/mortgage.PNG)
+
 ### Log out
 
 - This area allows the user to log out with a corresponding message. 
 - The user will then be routed back to the welcome screen.
+
+![Logout](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/logout.PNG)
 
 ### Additional Features
 
