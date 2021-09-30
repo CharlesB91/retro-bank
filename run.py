@@ -2,9 +2,9 @@ import gspread
 from google.oauth2.service_account import Credentials
 from email_validator import validate_email, EmailNotValidError
 import colorama
+from math import ceil
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
-from math import ceil
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -237,7 +237,8 @@ def balance():
     while True:
         try:
             print("")
-            choice = input(Fore.YELLOW + "If you would like to complete an other" +
+            choice = input(Fore.YELLOW + "If you would like to complete" +
+                           "an other" +
                            "transactions please 1 for main menu " +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
@@ -294,7 +295,8 @@ def deposit():
     while True:
         try:
             print("")
-            choiceSecond = input(Fore.YELLOW + "If you would like to complete an other" +
+            choiceSecond = input(Fore.YELLOW + "If you would like to" +
+                                 "complete an other" +
                                  "transaction please 1 for main menu " +
                                  "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
@@ -357,7 +359,8 @@ def withdrawal():
     while True:
         try:
             print("")
-            choiceSecond = input(Fore.YELLOW + "If you would like to complete an other" +
+            choiceSecond = input(Fore.YELLOW + "If you would like to" +
+                                 "complete an other"
                                  "transaction please 1 for main menu " +
                                  "If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
@@ -376,62 +379,6 @@ def withdrawal():
                 welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
-
-
-# def mortgageCalc():
-#     """
-#     This fucntion gives the user
-#     an idea of how much they could
-#     borrow if they were looking to
-#     take a mortgage based on their
-#     income & outgoings
-#     """
-
-#     while True:
-#         try:
-#             choice = input("How much is your annual salary? ")
-#             choice = choice.replace(',', '')
-#             choice = float(choice)
-#             outgoing = input("What is your monthly contractual outgoings? ")
-#             outgoing = outgoing.replace(',', '')
-#             outgoing = float(outgoing)
-#             if choice != float(choice) and outgoing != float(outgoing):
-#                 raise ValueError(Fore.RED +
-#                                  "Please enter a valid amount" +
-#                                  f"you entered: {choice}"
-#                                  )
-#             else:
-#                 totalOut = outgoing * 12
-#                 total = choice - totalOut
-#                 total = total * 4.75
-#                 print("")
-#                 print(Fore.GREEN + "The indicitive amount you could" +
-#                       f" borrow is £{total}\n")
-#                 break
-#         except ValueError as e:
-#             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
-
-#     while True:
-#         try:
-#             choiceSecond = input("If you would like to complete an other" +
-#                                  "transaction please 1 for main menu " +
-#                                  "If you would like to log out its 2:\n")
-#             if choiceSecond != "1" and choiceSecond != "2":
-#                 raise ValueError(Fore.RED +
-#                                  "Enter 1 for new customer or 2 for " +
-#                                  "selection" +
-#                                  f"you entered: {choiceSecond}"
-#                                  )
-#             elif choiceSecond == "1":
-#                 mainMenu()
-#             else:
-#                 print("")
-#                 print(Fore.YELLOW + "Thank You For Banking With Us")
-#                 print(Fore.YELLOW + "Have A Nice Day")
-#                 print("")
-#                 welcome()
-#         except ValueError as e:
-#             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
 def mortgageCalc():
@@ -485,9 +432,11 @@ def mortgageCalc():
     while True:
         try:
             print("")
-            choiceSecond = input(Fore.YELLOW + "If you would like to complete an other" +
-                                 "transaction please 1 for main menu " +
-                                 "If you would like to log out its 2:\n")
+            choiceSecond = input(Fore.YELLOW + "If you would like to" +
+                                 " complete" +
+                                 " an othertransaction please 1 for" +
+                                 " main menu" +
+                                 " If you would like to log out its 2:\n")
             if choiceSecond != "1" and choiceSecond != "2":
                 raise ValueError(Fore.RED +
                                  "Enter 1 for new customer or 2 for " +
