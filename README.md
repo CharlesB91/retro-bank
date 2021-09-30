@@ -113,6 +113,7 @@ Originally I sketched how I wanted the flow of my application to follow to get a
 - As part of testing realised that all email address should be converted to lower case to ensure when a customer attempts to log back in this be always converted into the correct format from what google sheets has. Using the .lower() method has resolved this issue. 
 - Again whilst testing because we are dealing with money values the user could input commas and decimal points which i had not accounted for. After some research implement replace(',', '') method to remove the commas and the method float() if the users a decimal point. The application can now handle values with commas and calculate using decimals. Stack overflow provided the solution to remove the commas (https://stackoverflow.com/questions/16233593/how-to-strip-comma-in-python-string).
 - When a customer registers their email i had not implemented anything to check that the email had already been registered. Additionally did not account for when a user logs in with an unknown email. After some thought realised all i had to do was catch this in an try block to stop the application from crashing.
+- When completeing certain transctions the output would have large decimal remainders. Researched and found a solution to round up to the next decimal (https://stackoverflow.com/questions/9232256/round-up-to-second-decimal-place-in-python)
 
 ### Unresolved Bugs
 
