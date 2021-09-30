@@ -46,7 +46,7 @@ def registerEmail():
     while True:
         try:
             global email
-            email = input("Please enter your email address: ")
+            email = input("Please enter your email address:\n")
             email = email.lower()
             einput = emailcheck(email)
             if einput != email:
@@ -72,7 +72,7 @@ def regDetails():
     welcome = float(bonus)
 
     while True:
-        name = input("Please enter your full name:\n ")
+        name = input("Please enter your full name:\n")
         nameNoSpace = name.replace(" ", "")
         if nameNoSpace.isalpha():
             break
@@ -81,7 +81,7 @@ def regDetails():
                   f" or special characters. You entered {nameNoSpace}")
 
     while True:
-        password = input("Please enter your password:\n ")
+        password = input("Please enter your password:\n")
         name = name.lower()
         name = name.title()
         if name == "":
@@ -123,7 +123,7 @@ def login():
 
     while True:
         try:
-            ename = input("Please enter your email address:\n ")
+            ename = input("Please enter your email address:\n")
             ename = ename.lower()
             ename = str(ename)
             gsheet.worksheet(ename)
@@ -141,7 +141,7 @@ def verify():
     so the customer can log into the account dash board.
     """
 
-    epass = input("Please enter your password:\n ")
+    epass = input("Please enter your password:\n")
 
     global email_ver
     global details
@@ -240,7 +240,7 @@ def balance():
             choice = input(Fore.YELLOW + "If you would like to complete" +
                            "an other" +
                            "transactions please 1 for main menu " +
-                           "If you would like to log out its 2:\n ")
+                           "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
                                  "Enter 1 for new customer or 2 for" +
@@ -273,7 +273,7 @@ def deposit():
     while True:
         try:
             print("")
-            choice = input("How much would you like to deposit ? \n ")
+            choice = input("How much would you like to deposit ? \n")
             choice = choice.replace(',', '')
             choice = float(choice)
             if choice != float(choice):
@@ -330,7 +330,7 @@ def withdrawal():
     while True:
         try:
             print("")
-            choice = input("How much would you like to withdraw ?\n ")
+            choice = input("How much would you like to withdraw ?\n")
             choice = choice.replace(',', '')
             choice = float(choice)
             if choice != float(choice):
@@ -393,7 +393,7 @@ def mortgageCalc():
     while True:
         try:
             print("")
-            choice = input("How much is your annual salary?\n ")
+            choice = input("How much is your annual salary?\n")
             choice = choice.replace(',', '')
             choice = float(choice)
             if choice <= 10000:
@@ -403,7 +403,7 @@ def mortgageCalc():
                 break
             else:
                 outgoing = input("What is your monthly contractual" +
-                                 " outgoings?\n ")
+                                 " outgoings?\n")
                 outgoing = outgoing.replace(',', '')
                 outgoing = float(outgoing)
                 if choice != float(choice) and outgoing != float(outgoing):
@@ -480,7 +480,6 @@ def welcome():
                   "please enter 1:")
             print(Fore.GREEN + Style.BRIGHT + "If you are already are an" +
                   "existing customer please enter 2:")
-            print("")
             choice = input("\n")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
