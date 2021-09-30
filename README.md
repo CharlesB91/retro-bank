@@ -2,6 +2,10 @@
 
 This retro banking application allows new & existing users to sign up for a retro account where they will receive a £500 joining bonus. This application has features such as check balance, deposit money, withdraw money and a mortgage calculator which will indicate how much a user can borrow based on their income and outgoings. This application has been set up with a google sheet API therefore all customer data & balance info is stored on a google sheet waiting to be accessed by the authenticated user.
 
+![Welcome](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/welcome.PNG)
+
+- Deployed Site(https://retro-bank21.herokuapp.com/)
+
 ## Aim
 
 The aim of this application to provide a banking application to any new and existing user to complete some basic banking transactions. This ultimelty demonstrates the use of python code and a remote database using google sheets API. The data can be requested, read, updated and saved as per the users request. 
