@@ -1,14 +1,14 @@
 # Retro Bank
 
-This retro banking application allows new & existing users to sign up for a retro account where they will receive a £500 joining bonus. This application has features such as check balance, deposit money, withdraw money and a mortgage calculate which will indicate how much a user can borrow based on their income and outgoings. This application has been set up with a google sheet API therefore all customer data & balance info is stored on a google sheet waiting to be accessed by the authenticated user.
+This retro banking application allows new & existing users to sign up for a retro account where they will receive a £500 joining bonus. This application has features such as check balance, deposit money, withdraw money and a mortgage calculator which will indicate how much a user can borrow based on their income and outgoings. This application has been set up with a google sheet API therefore all customer data & balance info is stored on a google sheet waiting to be accessed by the authenticated user.
 
 ## Aim
 
-The aim of this application to provide a banking application to any new and existing user to complete basic banking transactions. This ultimelty demonstrates the use of python code and a remote database using google sheets API. The data can be requested, read, updated and saved as per the users request. 
+The aim of this application to provide a banking application to any new and existing user to complete some basic banking transactions. This ultimelty demonstrates the use of python code and a remote database using google sheets API. The data can be requested, read, updated and saved as per the users request. 
 
 ### Business Goals
 
-- To collect user data and store this on a remove data base.
+- To collect user data and store this on a remote database.
 - Allow a user to create a new retro account and allow existing users to log into their retro account. 
 - Allow a user to complete some basic transactions i.e. view balance, deposit, withdraw and mortgage calculator.
 
@@ -41,13 +41,13 @@ Originally I sketched how I wanted the flow of my application to follow to get a
 
 ### Existing User Log In
 
-- This area is where the customer enters their email address & password.
+- This area is where the user enters their email address & password.
 - The details entered is checked against the google sheets to ensure the authenticity of the user. 
 - Once successfully logged in the user will be presented with the main menu.
 
 ### Main Menu
 
-- This area is what that customer will be presented once they are successfully logged in.
+- This area is where the user is routed to once successfully logged in. 
 - The menu has 5 options:
     - 1 View Balance
     - 2 Deposit
@@ -132,7 +132,7 @@ Originally I sketched how I wanted the flow of my application to follow to get a
 
 ## Credits
 
-- The original inspiration was taken from YouTube tutorial. Although the app features in this tutorial is deployed completely differently with a different data model. This allowed me to understand the logic and functionality i needed to build this application. (https://www.youtube.com/watch?v=71X58zIzrgA&list=RDCMUCfgSHpMOBXqmtqufxgVp68g&index=3)
+- The original inspiration was taken from YouTube tutorial. Although the app featured in this tutorial is deployed completely differently with a different data model. This allowed me to understand the logic and functionality i needed to build this application. (https://www.youtube.com/watch?v=71X58zIzrgA&list=RDCMUCfgSHpMOBXqmtqufxgVp68g&index=3)
 - The gspread documentation provided amazing guidance for manipulating data in the google sheet. (https://docs.gspread.org/en/latest/user-guide.html)
 - After some googling came across a specific email validator for when a user registers for the first time (https://pypi.org/project/email-validator/)
 - The coloured text and highlighted text effect was taken from YouTube tutorial (https://www.youtube.com/watch?v=u51Zjlnui4Y)
