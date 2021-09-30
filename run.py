@@ -31,7 +31,7 @@ def emailcheck(emailinput):
         return emailinput
     except EmailNotValidError:
         print(Fore.RED + "The email you provided is not valid " +
-              f"please try again.")
+              "please try again.")
 
 
 def registerEmail():
