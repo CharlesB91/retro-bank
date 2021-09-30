@@ -2,9 +2,9 @@ import gspread
 from google.oauth2.service_account import Credentials
 from email_validator import validate_email, EmailNotValidError
 from math import ceil
-import colorama
+from colorama import init
 from colorama import Fore, Back, Style
-colorama.init(autoreset=True)
+init(autoreset=True)
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
