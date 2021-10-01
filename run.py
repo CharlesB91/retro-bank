@@ -20,18 +20,55 @@ global gsheet
 gsheet = SHEET
 
 
-def emailcheck(emailinput):
+def welcome():
     """
-    Email validator function.
-    Checks the new email is valid
+    This function is the first option the user is given
+    to select if they are a new user or existing user
     """
-    try:
-        valid = validate_email(emailinput)
-        emailinput = valid.email
-        return emailinput
-    except EmailNotValidError:
-        print(Fore.RED + "The email you provided is not valid " +
-              "please try again.")
+    print("")
+    print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+    print("")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
+          "              WELCOME               ")
+    print("")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
+          "                TO                  ")
+    print("")
+    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
+          "            RETRO BANK              ")
+    print("")
+    print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+    while True:
+        try:
+            print("")
+            print(Fore.GREEN + Style.BRIGHT + "If you are a new customer" +
+                  " please enter 1:")
+            print(Fore.GREEN + Style.BRIGHT + "If you are already are an" +
+                  " existing customer please enter 2:")
+            choice = input("\n")
+            if choice != "1" and choice != "2":
+                raise ValueError(Fore.RED +
+                                 "Enter 1 for new customer or 2 for" +
+                                 "existing customer," +
+                                 f"you entered: {choice}"
+                                 )
+            else:
+                return chosen(choice)
+        except ValueError as e:
+            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
+
+
+def chosen(choice):
+    """
+    Once a valid user selection has been made in the
+    welcome function. This will then direct the user to
+    the appropriate new or existing user function
+    """
+
+    if choice == "1":
+        registerEmail()
+    elif choice == "2":
+        login()
 
 
 def registerEmail():
@@ -59,6 +96,20 @@ def registerEmail():
                 return email
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
+
+
+def emailcheck(emailinput):
+    """
+    Email validator function.
+    Checks the new email is valid
+    """
+    try:
+        valid = validate_email(emailinput)
+        emailinput = valid.email
+        return emailinput
+    except EmailNotValidError:
+        print(Fore.RED + "The email you provided is not valid " +
+              "please try again.")
 
 
 def regDetails():
@@ -454,57 +505,6 @@ def mortgageCalc():
                 welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
-
-
-def welcome():
-    """
-    This function is the first option the user is given
-    to select if they are a new user or existing user
-    """
-    print("")
-    print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
-    print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
-          "              WELCOME               ")
-    print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
-          "                TO                  ")
-    print("")
-    print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
-          "            RETRO BANK              ")
-    print("")
-    print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
-    while True:
-        try:
-            print("")
-            print(Fore.GREEN + Style.BRIGHT + "If you are a new customer" +
-                  " please enter 1:")
-            print(Fore.GREEN + Style.BRIGHT + "If you are already are an" +
-                  " existing customer please enter 2:")
-            choice = input("\n")
-            if choice != "1" and choice != "2":
-                raise ValueError(Fore.RED +
-                                 "Enter 1 for new customer or 2 for" +
-                                 "existing customer," +
-                                 f"you entered: {choice}"
-                                 )
-            else:
-                return chosen(choice)
-        except ValueError as e:
-            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
-
-
-def chosen(choice):
-    """
-    Once a valid user selection has been made in the
-    welcome function. This will then direct the user to
-    the appropriate new or existing user function
-    """
-
-    if choice == "1":
-        registerEmail()
-    elif choice == "2":
-        login()
 
 
 welcome()
