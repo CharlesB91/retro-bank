@@ -179,7 +179,8 @@ def mainMenu():
     1. View Balance
     2. Deposits
     3. Withdraw
-    4. Logout
+    4. How much can i borrow
+    5. Logout
     """
     while True:
         try:
