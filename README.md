@@ -2,7 +2,7 @@
 
 This retro banking application allows new & existing users to sign up for a retro account where they will receive a £500 joining bonus. This application has features such as check balance, deposit money, withdraw money and a mortgage calculator which will indicate how much a user can borrow based on their income and outgoings. This application has been set up with a google sheet API therefore all customer data & balance info is stored on a google sheet waiting to be accessed by the authenticated user.
 
-![Welcome-Screen](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/welcome1.PNG)
+![Welcome-Screen](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/welcome.PNG)
 
 - Deployed Site(https://retro-bank21.herokuapp.com/)
 
@@ -37,7 +37,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 - This area features a graphical message of retro bank.
 - This area is where the user can enter 1 to register as a new user or 2 for existing user log in.
 
-![Welcome](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/welcome1.PNG)
+![Welcome](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/welcome.PNG)
 
 ### New User Registration
 
