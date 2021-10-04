@@ -26,18 +26,23 @@ def welcome():
     to select if they are a new user or existing user
     """
     print("")
-    print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+    print(Fore.GREEN + "****************************************" +
+          "**************************")
+    print(Fore.RED + "****************************************" +
+          "**************************")
     print("")
     print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
-          "              WELCOME               ")
-    print("")
+          "                             WELCOME                              ")
     print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
-          "                TO                  ")
-    print("")
+          "                               TO                                 ")
     print(Fore.BLACK + Back.YELLOW + Style.BRIGHT +
-          "            RETRO BANK              ")
+          "                           RETRO BANK                             ")
     print("")
-    print(Fore.GREEN + "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+    print(Fore.MAGENTA + "****************************************" +
+          "**************************")
+    print(Fore.BLUE + "****************************************" +
+          "**************************")
+    print("")
     while True:
         try:
             print("")
