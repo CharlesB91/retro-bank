@@ -280,16 +280,7 @@ def mainMenu():
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
 
-def balance():
-    """
-    This function allows the user to view
-    their real time balance from the google sheet
-    """
-    user = SHEET.worksheet(ename)
-    balance = user.col_values(4)
-    value = balance[0]
-    print("")
-    print(Fore.GREEN + f"The balance of your account is £{value}")
+def userContinue():
 
     while True:
         try:
@@ -314,6 +305,19 @@ def balance():
                 welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
+
+
+def balance():
+    """
+    This function allows the user to view
+    their real time balance from the google sheet
+    """
+    user = SHEET.worksheet(ename)
+    balance = user.col_values(4)
+    value = balance[0]
+    print("")
+    print(Fore.GREEN + f"The balance of your account is £{value}")
+    userContinue()
 
 
 def deposit():
@@ -345,31 +349,8 @@ def deposit():
                 print("")
                 print(Fore.GREEN + "The balance of your account" +
                       f"is now £{new}")
+                userContinue()
                 break
-        except ValueError as e:
-            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
-
-    while True:
-        try:
-            print("")
-            choiceSecond = input(Fore.YELLOW + "If you would like to" +
-                                 "complete an other" +
-                                 "transaction please 1 for main menu " +
-                                 "If you would like to log out its 2:\n")
-            if choiceSecond != "1" and choiceSecond != "2":
-                raise ValueError(Fore.RED +
-                                 "Enter 1 for new customer or 2 for" +
-                                 "selection" +
-                                 f"you entered: {choiceSecond}"
-                                 )
-            elif choiceSecond == "1":
-                mainMenu()
-            else:
-                print("")
-                print(Fore.YELLOW + "Thank You For Banking With Us")
-                print(Fore.YELLOW + "Have A Nice Day")
-                print("")
-                welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
@@ -403,37 +384,15 @@ def withdrawal():
                     print("")
                     print(Fore.GREEN + "The balance of your account" +
                           f"is now £{new}")
+                    userContinue()
                     break
                 else:
                     print("")
                     print(Fore.RED + "You have insufficient funds")
                     print(Fore.GREEN + "The Balance of your account" +
                           f"is £{value} \n")
+                    userContinue()
                     break
-        except ValueError as e:
-            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
-
-    while True:
-        try:
-            print("")
-            choiceSecond = input(Fore.YELLOW + "If you would like to" +
-                                 "complete an other"
-                                 "transaction please 1 for main menu " +
-                                 "If you would like to log out its 2:\n")
-            if choiceSecond != "1" and choiceSecond != "2":
-                raise ValueError(Fore.RED +
-                                 "Enter 1 for new customer or 2 for" +
-                                 "selection" +
-                                 f"you entered: {choiceSecond}"
-                                 )
-            elif choiceSecond == "1":
-                mainMenu()
-            else:
-                print("")
-                print(Fore.YELLOW + "Thank You For Banking With Us")
-                print(Fore.YELLOW + "Have A Nice Day")
-                print("")
-                welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
@@ -457,6 +416,7 @@ def mortgageCalc():
                 print("")
                 print(Fore.RED + "You are not eligible for a mortgage based" +
                       " on your salary\n")
+                userContinue()
                 break
             else:
                 outgoing = input("What is your monthly contractual" +
@@ -477,37 +437,14 @@ def mortgageCalc():
                         print("")
                         print(Fore.RED + "You are not eligible for a " +
                               "mortgage based on your income & outgoings\n")
+                        userContinue()
                         break
                     else:
                         print("")
                         print(Fore.GREEN + "The indicitive amount you could" +
                               f" borrow is £{total}\n")
+                        userContinue()
                         break
-        except ValueError as e:
-            print(Fore.RED + f"Invalid data: {e}, please try again.\n")
-
-    while True:
-        try:
-            print("")
-            choiceSecond = input(Fore.YELLOW + "If you would like to" +
-                                 " complete" +
-                                 " an othertransaction please 1 for" +
-                                 " main menu" +
-                                 " If you would like to log out its 2:\n")
-            if choiceSecond != "1" and choiceSecond != "2":
-                raise ValueError(Fore.RED +
-                                 "Enter 1 for new customer or 2 for " +
-                                 "selection" +
-                                 f"you entered: {choiceSecond}"
-                                 )
-            elif choiceSecond == "1":
-                mainMenu()
-            else:
-                print("")
-                print(Fore.YELLOW + "Thank You For Banking With Us")
-                print(Fore.YELLOW + "Have A Nice Day")
-                print("")
-                welcome()
         except ValueError as e:
             print(Fore.RED + f"Invalid data: {e}, please try again.\n")
 
