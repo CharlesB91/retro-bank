@@ -6,7 +6,7 @@ This retro banking application allows new & existing users to sign up for a retr
 
 - Deployed Site(https://retro-bank21.herokuapp.com/)
 
-## Aim
+## Project Objectives
 
 The aim of this application to provide a banking application to any new and existing user to complete some basic banking transactions. This ultimately demonstrates the use of python code and a remote database using google sheets API. The data can be requested, read, updated and saved as per the users request. 
 
@@ -24,7 +24,7 @@ The aim of this application to provide a banking application to any new and exis
 
 Originally, I sketched how I wanted the flow of my application to follow to get an idea of what functionality was required. I then moved this idea to diagram flowchart. 
 
-![Flow-Chart](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/flow_retro_bank-Page-2.drawio.png)
+![Flow-Chart](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/new-retro-flow.drawio.png)
 
 - For my data model I decided to use the google sheets API to store the customer data and balance info. 
 - I created functions to register the customers details and to verify the customers data when logging in. 
@@ -65,7 +65,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
     - 4 How much can I borrow
     - 5 Log out
 
-- The user needs to enter the corresponding menu number of which transaction they would like to complete and they will be routed accordingly. 
+- The user needs to enter the corresponding menu number of which transactions they would like to complete and they will be routed accordingly. 
 
 ![Main-Menu](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/menu.PNG)
 
@@ -128,6 +128,13 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 ### Validator Testing
 
 - Code has been passed through (http://pep8online.com/) with no significant issues after corrections.
+- The only minor issues were spacing in the print and input fields. These have now been resolved.
+
+### Manual Testing
+
+- This code has been extensively tested by myself. At the user input fields I have attempted to input invalid data to ensure the error functions are working currently and the programme doesn’t crash by doing so.
+- Asked family members to test this application which they found easy to use and informative of next steps in the process.
+
 
 ## Bugs
 
@@ -146,7 +153,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 
 ## Future Features
 
-- For the registration area I would implement a password validator which would check that the password meets a certain criteria i.e., 8 characters long with number and special character. 
+- For the registration area I would implement a password validator which would check that the password meets a certain criteria i.e., passwords that includes number and special character. 
 - Again, for the registration section where the user inputs their name. I would implement a name checker which validates the customer has entered a valid name. Right now, the user could enter any character and this would be added to the google sheet as their name. 
 - Lastly when the user registers, I would implement a savings goal. This would be displayed every time the user checks their balance or deposits
 
@@ -159,6 +166,11 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
   - Set a built back to Python and nodeJs (in this exact order).
   - Link the Heroku app to the repository.
   - Finally click on Deploy.
+
+## Rationale For Library’s & Modules
+
+- As mentioned in the bugs section anytime a user would input a decimal value this could sometimes produce a large decimal value. To round this uptp the nearest decimal point stack overflow suggested to use from math import ceil (https://stackoverflow.com/questions/9232256/round-up-to-second-decimal-place-in-python).
+- Additionally, to help with styling the programme to ensure certain information stood out I used from colorama import init module. The link can be found below in the credits section. 
 
 ## Credits
 
