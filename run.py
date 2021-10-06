@@ -142,8 +142,11 @@ def regDetails():
         name = name.title()
         if name == "":
             print(Fore.RED + "Name is required")
-        elif password == "":
-            print(Fore.RED + "Password Required")
+        elif password == "" and len(password) < 10:
+            print(Fore.RED + "Please enter a password")
+        elif len(password) < 8:
+            print(Fore.RED + "Please enter a password 8 characters minimum." +
+                  "Numbers and special characters are acceptable")
         else:
             try:
                 worksheet = gsheet.add_worksheet(title=email,
