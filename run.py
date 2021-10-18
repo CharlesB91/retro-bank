@@ -106,8 +106,8 @@ def registerEmail():
 def emailcheck(emailinput):
     """
     Email validator function.
-    Checks the new email is valid
-    This code was taken from (https://pypi.org/project/email-validator/)
+    Checks the new email is valid.
+    This code was taken from (https://pypi.org/project/email-validator/).
     """
     try:
         valid = validate_email(emailinput)
@@ -121,7 +121,7 @@ def emailcheck(emailinput):
 def regDetails():
     """
     This function checks a valid name has been input,
-    then adds the customer data google sheet long with new balance
+    User data is then added to the google sheet with new balance
     """
 
     new_cust = []
@@ -285,6 +285,11 @@ def mainMenu():
 
 
 def userContinue():
+    """
+    This function runs a while loop whilst
+    checking if the user wants to rever to the main 
+    menu or log out.
+    """
 
     while True:
         try:
@@ -328,7 +333,7 @@ def deposit():
     """
     This function allows the user to deposit money.
     Once they have completed this transaction theyre
-    new balance will display
+    new balance will display.
     """
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
@@ -362,7 +367,7 @@ def deposit():
 def withdrawal():
     """
     This function allows the user to withdraw money.
-    This will check if they have sufficent funds to do so
+    This will check if they have sufficent funds to do so.
     """
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
@@ -407,7 +412,7 @@ def mortgageCalc():
     an idea of how much they could
     borrow if they were looking to
     take a mortgage based on their
-    income & outgoings
+    income & outgoings.
     """
 
     while True:
