@@ -287,7 +287,7 @@ def mainMenu():
 def userContinue():
     """
     This function runs a while loop whilst
-    checking if the user wants to rever to the main 
+    checking if the user wants to rever to the main
     menu or log out.
     """
 
