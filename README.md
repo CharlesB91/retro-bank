@@ -20,8 +20,7 @@ The aim of this application to provide a banking application to any new and exis
 
 ### Client Goals
 
-- To provide useful banking facilities for a user for their everyday needs.
-- Maintaining data integrity.
+- To provide useful banking facilities for a users everyday needs whilst maintaining data integrity. 
 
 ## Data Model - Function Diagram
 
@@ -37,7 +36,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 
 ### Welcome 
 
-- This area features a graphical message of retro bank.
+- This area features the welcome to retro bank message.
 - This area is where the user can enter 1 to register as a new user or 2 for existing user log in.
 
 ![Welcome](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/welcome.PNG)
@@ -46,7 +45,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 
 - This area is where the user can enter their email address, full name & password.
 - The application will first check the email address entered is not already registered.
-- Once successfully registered the customers details will be saved onto a new worksheet on the google sheet with their new balance of £500
+- Once successfully registered the users details will be saved onto a new worksheet on the google sheet with their new balance of £500.
 
 ![New-User](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/register.PNG)
 
@@ -102,7 +101,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 
 - This area features a simple mortgage calculation which will inform the user how much they can borrow.
 - The user needs to enter their annual salary along with their monthly contractual commitments.
-- The user will then be information how much in principle they can borrow. 
+- The user will then be informed how much in principle they can borrow. 
 - If the amount offered is under 20K they will be presented with a message that they do not qualify for a mortgage.
 - Additionally, if the customers annual salary is 10K or below they will be presented with a message that they do not qualify for a mortgage.
 - The customer will be presented with a message if they would like to revert to the main menu or log out. 
@@ -145,7 +144,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 
 - Initially when a user was trying to sign in the code could not access appropriate cell data as there would be multiple customers eventually registering so could not implements a specific cell to search as customer data was on the one worksheet. After chatting with mentor, she advised to look at my data structure within google sheets. After some thought I decided to change the method in which new users are registered against the google sheet. Instead of having all customer data in one worksheet I implemented a method that would register a new worksheet for any new user with their email address as the name of the worksheet. By doing this was I could then access the customer email address, name, password, balance data as the cells would not be changing only the specific worksheet for whoever was trying to log in. The gspread documentation helped me figure this out which was very helpful. (https://docs.gspread.org/en/latest/user-guide.html).
 - As part of testing i realised that all email addresses should be converted to lower case to ensure when a customer attempts to log back in this be always converted into the correct format from what google sheets has. Using the .lower() method has resolved this issue. 
-- Again, whilst testing, as we are dealing with monetary values the user could input commas and decimal points which I had not accounted for. After some research I implemented the replace(',', '') method to remove the commas. (https://stackoverflow.com/questions/16233593/how-to-strip-comma-in-python-string).
+- Again, whilst testing, as we are dealing with monetary values the user could input commas and decimal points which I had not accounted for. After some research I implemented the replace(',', '') method to remove the commas. The float() method also resolved the issue of decimal points. (https://stackoverflow.com/questions/16233593/how-to-strip-comma-in-python-string).
 - When a customer registers their email, I had not implemented anything to check that the email had already been registered. Additionally, I did not account for when a user logs in with an invalid email address. After some thought realised all, I had to do was catch this in a try block to stop the application from crashing.
 - When a user would complete certain transactions, the output would have large decimal remainders. Researched and found a solution to round up to the next decimal (https://stackoverflow.com/questions/9232256/round-up-to-second-decimal-place-in-python)
 
@@ -170,14 +169,9 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
   - Link the Heroku app to the repository.
   - Finally click on Deploy.
 
-## Rationale For Library’s & Modules
-
-- As mentioned in the bugs section anytime a user would input a decimal value this could sometimes produce a large decimal value. To round this uptp the nearest decimal point stack overflow suggested to use from math import ceil (https://stackoverflow.com/questions/9232256/round-up-to-second-decimal-place-in-python).
-- Additionally, to help with styling the programme to ensure certain information stood out I used from colorama import init module. The link can be found below in the credits section. 
-
 ## Credits
 
-- The original inspiration was taken from YouTube tutorial. Although the app featured in this tutorial is deployed completely differently with a different data model. This allowed me to understand the logic and functionality I needed to build this application. (https://www.youtube.com/watch?v=71X58zIzrgA&list=RDCMUCfgSHpMOBXqmtqufxgVp68g&index=3)
-- The gspread documentation provided amazing guidance for manipulating data in the google sheet. (https://docs.gspread.org/en/latest/user-guide.html)
+- The original inspiration was taken from the below YouTube tutorial. Although the app featured in this tutorial is deployed completely differently with a different data model. This allowed me to understand the logic and functionality I needed to build this application. (https://www.youtube.com/watch?v=71X58zIzrgA&list=RDCMUCfgSHpMOBXqmtqufxgVp68g&index=3)
+- The gspread documentation provided expert guidance for manipulating data in the google sheet. (https://docs.gspread.org/en/latest/user-guide.html)
 - After some googling came across a specific email validator for when a user registers for the first time (https://pypi.org/project/email-validator/)
 - The coloured text and highlighted text effect were taken from YouTube tutorial (https://www.youtube.com/watch?v=u51Zjlnui4Y)
