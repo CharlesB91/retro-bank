@@ -107,6 +107,7 @@ def emailcheck(emailinput):
     """
     Email validator function.
     Checks the new email is valid
+    This code was taken from (https://pypi.org/project/email-validator/)
     """
     try:
         valid = validate_email(emailinput)
