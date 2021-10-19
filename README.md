@@ -95,7 +95,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 - The customer will be presented with a message if they would like to revert to the main menu or log out. 
 
 ![Withdraw](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/withdraw.PNG)
-![Insufficent-Funds](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/insufficent.PNG)
+![Insufficent-Funds](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/insufficient.PNG)
 
 ### Mortgage Calculator - How much can I borrow
 
@@ -106,7 +106,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 - Additionally, if the customers annual salary is 10K or below they will be presented with a message that they do not qualify for a mortgage.
 - The customer will be presented with a message if they would like to revert to the main menu or log out. 
 
-![Insufficent-Funds](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/mortgage.PNG)
+![Mortgage Calculator](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/mortgage-calc.PNG)
 
 ### Log out
 
