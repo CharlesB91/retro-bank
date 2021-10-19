@@ -213,7 +213,7 @@ def verify():
     email_ver = SHEET.worksheet(ename)
     username = email_ver.col_values(2)
     password = email_ver.col_values(3)
-    
+
     for i in password:
         if i == epass:
             mainMenu()
