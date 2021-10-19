@@ -175,3 +175,4 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 - The gspread documentation provided expert guidance for manipulating data in the google sheet. (https://docs.gspread.org/en/latest/user-guide.html)
 - After some googling came across a specific email validator for when a user registers for the first time (https://pypi.org/project/email-validator/)
 - The coloured text and highlighted text effect were taken from YouTube tutorial (https://www.youtube.com/watch?v=u51Zjlnui4Y)
+- Google sheet API where all customer data is stored was inspired by the love sandwiches project. 

@@ -6,6 +6,9 @@ from colorama import init
 from colorama import Fore, Back, Style
 init(autoreset=True)
 
+# Inspiration for google sheet API was originally
+# taken from love sandwiches project
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
