@@ -44,7 +44,7 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 ### New User Registration
 
 - This area is where the user can enter their email address, full name & password.
-- The application will first check the email address entered is not already registered.
+- The application will first check the email address entered is not already registered and also is a valid email. 
 - Once successfully registered the users details will be saved onto a new worksheet on the google sheet with their new balance of £500.
 
 ![New-User](https://github.com/CharlesB91/retro-bank/blob/main/assets/images/register.PNG)
@@ -61,9 +61,9 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 
 - This area is where the user is routed to once successfully logged in. 
 - The menu has 5 options:
-    - 1 View Balance
-    - 2 Deposit
-    - 3 Withdraw
+    - 1 Account Balance
+    - 2 Deposit Money
+    - 3 Withdrawal
     - 4 How much can I borrow
     - 5 Log out
 
