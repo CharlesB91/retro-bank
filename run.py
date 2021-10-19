@@ -28,6 +28,7 @@ def welcome():
     This function is the first option the user is given
     to select if they are a new user or existing user.
     """
+
     print("")
     print(Fore.GREEN + "****************************************" +
           "**************************")
@@ -112,6 +113,7 @@ def emailcheck(emailinput):
     Checks the new email is valid.
     This code was taken from (https://pypi.org/project/email-validator/).
     """
+
     try:
         valid = validate_email(emailinput)
         emailinput = valid.email
@@ -246,6 +248,7 @@ def mainMenu():
     4. How much can i borrow
     5. Logout
     """
+
     while True:
         try:
             print("")
@@ -325,6 +328,7 @@ def balance():
     This function allows the user to view
     their real time balance from the google sheet.
     """
+
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
@@ -339,6 +343,7 @@ def deposit():
     Once they have completed this transaction they’re
     new balance will display.
     """
+
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
@@ -373,6 +378,7 @@ def withdrawal():
     This function allows the user to withdraw money.
     This will check if they have sufficient funds to do so.
     """
+
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
     value = balance[0]
