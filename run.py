@@ -121,7 +121,8 @@ def emailcheck(emailinput):
 def regDetails():
     """
     This function checks a valid name has been input,
-    User data is then added to the google sheet with new balance
+    User data is then added to the google sheet with new balance.
+    Code Taken from Gspread documentation
     """
 
     new_cust = []
@@ -175,7 +176,7 @@ def regDetails():
 def login():
     """
     This function checks the email address is valid in the
-    google sheet when customer attepmts to log in
+    google sheet when customer attempts to log in
     """
 
     global ename
@@ -287,7 +288,7 @@ def mainMenu():
 def userContinue():
     """
     This function runs a while loop whilst
-    checking if the user wants to rever to the main
+    checking if the user wants to revert to the main
     menu or log out.
     """
 
@@ -332,7 +333,7 @@ def balance():
 def deposit():
     """
     This function allows the user to deposit money.
-    Once they have completed this transaction theyre
+    Once they have completed this transaction they’re
     new balance will display.
     """
     user = SHEET.worksheet(ename)
@@ -367,7 +368,7 @@ def deposit():
 def withdrawal():
     """
     This function allows the user to withdraw money.
-    This will check if they have sufficent funds to do so.
+    This will check if they have sufficient funds to do so.
     """
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
@@ -408,7 +409,7 @@ def withdrawal():
 
 def mortgageCalc():
     """
-    This fucntion gives the user
+    This function gives the user
     an idea of how much they could
     borrow if they were looking to
     take a mortgage based on their
