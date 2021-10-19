@@ -126,16 +126,13 @@ Originally, I sketched how I wanted the flow of my application to follow to get 
 
 - Code has been passed through pep8 linter via git pod with no significant issues.
 - Tested code via terminal & heroku terminal.
+- This code has been extensively tested by myself. Have tested the user input fields where I have attempted to input invalid data to ensure the error functions are working currently and the programme doesn’t crash by doing so.
+- Asked family members to test this application which they found easy to use and informative of next steps in the process.
 
 ### Validator Testing
 
 - Code has been passed through (http://pep8online.com/) with no significant issues after corrections.
 - The only minor issues were spacing in the print and input fields. These have now been resolved.
-
-### Manual Testing
-
-- This code has been extensively tested by myself. Have tested the user input fields where I have attempted to input invalid data to ensure the error functions are working currently and the programme doesn’t crash by doing so.
-- Asked family members to test this application which they found easy to use and informative of next steps in the process.
 
 
 ## Bugs
