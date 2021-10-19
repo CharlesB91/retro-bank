@@ -209,33 +209,20 @@ def verify():
 
     epass = input("Please enter your password:\n")
 
-    global email_ver
-    global details
-    global password
-    global balances
     global username
     email_ver = SHEET.worksheet(ename)
-    details = email_ver.col_values(1)
     username = email_ver.col_values(2)
     password = email_ver.col_values(3)
-    balances = email_ver.col_values(4)
-    user = []
-
-    user.append(ename)
-    user.append(epass)
-
-    found = 0
-
-    for i in zip(details, password):
-        if i == tuple(user):
-            found = 1
+    
+    for i in password:
+        if i == epass:
             mainMenu()
-            return found
-    if found == 0:
+            return
+    if i != epass:
         print(Fore.RED + "Incorrect Password !")
         print(Fore.RED + "Please note passwords are case sensitive")
         login()
-        return found
+        return
 
 
 def mainMenu():
