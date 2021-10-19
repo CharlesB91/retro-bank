@@ -23,7 +23,7 @@ gsheet = SHEET
 def welcome():
     """
     This function is the first option the user is given
-    to select if they are a new user or existing user
+    to select if they are a new user or existing user.
     """
     print("")
     print(Fore.GREEN + "****************************************" +
@@ -67,7 +67,7 @@ def chosen(choice):
     """
     Once a valid user selection has been made in the
     welcome function. This will then direct the user to
-    the appropriate new or existing user function
+    the appropriate new or existing user function.
     """
 
     if choice == "1":
@@ -79,7 +79,7 @@ def chosen(choice):
 def registerEmail():
     """
     This function checks the email address is correct,
-    while loop will continue until a valid email is input
+    while loop will continue until a valid email is input.
     """
 
     print(Fore.GREEN + "Please complete the following fields to " +
@@ -122,7 +122,7 @@ def regDetails():
     """
     This function checks a valid name has been input,
     User data is then added to the google sheet with new balance.
-    Code Taken from Gspread documentation
+    Code Taken from Gspread documentation.
     """
 
     new_cust = []
@@ -176,7 +176,7 @@ def regDetails():
 def login():
     """
     This function checks the email address is valid in the
-    google sheet when customer attempts to log in
+    google sheet when customer attempts to log in.
     """
 
     global ename
@@ -320,7 +320,7 @@ def userContinue():
 def balance():
     """
     This function allows the user to view
-    their real time balance from the google sheet
+    their real time balance from the google sheet.
     """
     user = SHEET.worksheet(ename)
     balance = user.col_values(4)
