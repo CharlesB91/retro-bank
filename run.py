@@ -300,7 +300,7 @@ def userContinue():
             print("")
             choice = input(Fore.YELLOW + "If you would like to complete " +
                            "an other" +
-                           " transactions please 1 for main menu. " +
+                           " transactions please 1 for main menu.\n" +
                            "If you would like to log out its 2:\n")
             if choice != "1" and choice != "2":
                 raise ValueError(Fore.RED +
